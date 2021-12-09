@@ -11,6 +11,8 @@ install.sh 用来安装 VIM-Plug 插件
 
 ## 日后的目标
 
+- [ ] Vue 环境搭建
+- [ ] Vim Spector 调试器使用
 - [ ] 自动中英文切换
 - [ ] AirLine 安装
 - [ ] 配置文件分文件存储

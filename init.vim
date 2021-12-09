@@ -17,6 +17,9 @@ Plug 'alvan/vim-closetag'
 " The lsp server for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" The debugger of the vim
+Plug 'puremourning/vimspector'
+
 " The file manager
 Plug 'scrooloose/nerdtree' 
 
@@ -70,7 +73,6 @@ let g:coc_global_extensions = ['coc-java',
 			\'coc-markdownlint',
 			\'coc-html',
 			\'coc-tsserver',
-			\'@yaegassy/coc-volar',
 			\'coc-css']
 " Some servers have issues with backup files, see #649.
 set nobackup
