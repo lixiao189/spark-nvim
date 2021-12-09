@@ -32,6 +32,9 @@ Plug 'yggdroot/indentline'
 " The plugin to preview markdown file
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
+" The plugin to fold code easily
+Plug 'pseewald/vim-anyfold'
+
 " The themes of the VIM
 Plug 'joshdick/onedark.vim'
 call plug#end()
@@ -44,8 +47,7 @@ set nowrap " 禁止折行
 let mapleader = "\<space>" " Use the <space> as the leader key
 set wildmenu " Show the autocompletion of VIM command line
 set tabstop=4 
-set softtabstop=4 
-set shiftwidth=4 
+set shiftwidth=4
 set backspace=2 "设置删除键为增强模式 
 set autoindent 
 set cindent
@@ -57,6 +59,11 @@ set statusline=%F%m%r%h%w\ %=\ [%l,\ %v]\
 set expandtab
 let g:onedark_termcolors=16
 colorscheme onedark
+filetype plugin indent on " required
+autocmd Filetype * AnyFoldActivate               " activate for all filetypes
+set foldlevel=0  " close all folds
+autocmd FileType go set noexpandtab
+autocmd FileType c,cpp set tabstop=2 shiftwidth=2
 
 " The settings of the coc.nvim complete plugins
 set shortmess+=c
