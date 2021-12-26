@@ -57,7 +57,6 @@ set expandtab
 let g:onedark_termcolors=16
 colorscheme onedark
 filetype plugin indent on " required
-autocmd Filetype * AnyFoldActivate               " activate for all filetypes
 autocmd FileType go set noexpandtab
 autocmd FileType c,cpp set tabstop=2 shiftwidth=2
 
