@@ -32,9 +32,6 @@ Plug 'yggdroot/indentline'
 " The plugin to preview markdown file
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-" The plugin to fold code easily
-Plug 'pseewald/vim-anyfold'
-
 " The themes of the VIM
 Plug 'joshdick/onedark.vim'
 call plug#end()
@@ -61,7 +58,6 @@ let g:onedark_termcolors=16
 colorscheme onedark
 filetype plugin indent on " required
 autocmd Filetype * AnyFoldActivate               " activate for all filetypes
-set foldlevel=0  " close all folds
 autocmd FileType go set noexpandtab
 autocmd FileType c,cpp set tabstop=2 shiftwidth=2
 
