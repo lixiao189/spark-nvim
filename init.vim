@@ -1,5 +1,8 @@
 " Manage your plugins here
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+" Plug 'ryanoasis/vim-devicons' Icons without colours
+Plug 'akinsho/bufferline.nvim'
 
 " Plugin for syntax hightlight and indent 
 Plug 'sheerun/vim-polyglot'
@@ -121,6 +124,13 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" The settings of the bufferline
+" In your init.lua or init.vim
+set termguicolors
+lua << EOF
+require("bufferline").setup{}
+EOF
 
 " The settings of the nerdtree
 let NERDTreeShowHidden=1 "Show the hidden file defaultly
