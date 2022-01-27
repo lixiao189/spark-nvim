@@ -4,6 +4,8 @@ Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 " Plug 'ryanoasis/vim-devicons' Icons without colours
 Plug 'akinsho/bufferline.nvim'
 
+Plug 'itchyny/lightline.vim'
+
 " Plugin for syntax hightlight and indent 
 Plug 'sheerun/vim-polyglot'
 
@@ -55,7 +57,7 @@ set mouse=a " Enable the support for the mouse event
 set cul
 set laststatus=2 
 set shortmess+=I " Don't show the introduction of the VIM
-set statusline=%F%m%r%h%w\ %=\ [%l,\ %v]\  
+" set statusline=%F%m%r%h%w\ %=\ [%l,\ %v]\  
 set expandtab
 let g:onedark_termcolors=16
 colorscheme onedark
@@ -192,4 +194,10 @@ let g:closetag_regions = {
     \ }
 " Shortcut for closing tags, default is '>'
 let g:closetag_shortcut = '>'
+
+" The ssettings of linght line
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
 
