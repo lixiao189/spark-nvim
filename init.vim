@@ -4,6 +4,9 @@ Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 " Plug 'ryanoasis/vim-devicons' Icons without colours
 Plug 'akinsho/bufferline.nvim'
 
+" Add some icons on some plugins
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'itchyny/lightline.vim'
 
 " Plugin for syntax hightlight and indent 
@@ -197,7 +200,13 @@ let g:closetag_shortcut = '>'
 
 " The ssettings of linght line
 set noshowmode
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 let g:lightline = {
       \ 'colorscheme': 'one',
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
       \ }
-
