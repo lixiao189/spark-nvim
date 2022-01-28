@@ -72,6 +72,8 @@ autocmd FileType c,cpp set tabstop=2 shiftwidth=2
 set shortmess+=c
 " The list of the lsp plugins
 let g:coc_global_extensions = ['coc-java',
+            \'coc-lua',
+            \'coc-imselect',
 			\'coc-json',
 			\'coc-vimlsp',
 			\'coc-clangd',
