@@ -68,6 +68,8 @@ filetype plugin indent on " required
 autocmd FileType go set noexpandtab
 autocmd FileType c,cpp set tabstop=2 shiftwidth=2
 set guicursor=
+" Set the transparent background
+highlight Normal guibg=NONE ctermbg=None 
 
 " The settings of the coc.nvim complete plugins
 set shortmess+=c
