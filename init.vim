@@ -65,16 +65,26 @@ set expandtab
 let g:onedark_termcolors=16
 colorscheme onedark
 filetype plugin indent on " required
+
+" Settings with different filetype
 autocmd FileType go set noexpandtab
-autocmd FileType c,cpp set tabstop=2 shiftwidth=2
+autocmd FileType c,cpp,vue,html,css,ts,js,json set tabstop=2 shiftwidth=2
+
 set guicursor=
+
 " Set the transparent background
 highlight Normal guibg=NONE ctermbg=None 
+
+" Disable quote concealing in JSON files
+let g:vim_json_conceal=0
+
+"==============================================================================
 
 " The settings of the coc.nvim complete plugins
 set shortmess+=c
 " The list of the lsp plugins
 let g:coc_global_extensions = ['coc-java',
+            \'coc-prettier',
             \'coc-lua',
             \'coc-imselect',
 			\'coc-json',
