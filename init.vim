@@ -9,8 +9,8 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'itchyny/lightline.vim'
 
-" Plugin for syntax hightlight and indent 
-" Plug 'sheerun/vim-polyglot'
+" Show the diff signs of the git
+Plug 'airblade/vim-gitgutter'
 
 " Plugin for adding comment
 Plug 'preservim/nerdcommenter'
@@ -77,6 +77,9 @@ highlight Normal guibg=NONE ctermbg=None
 
 " Disable quote concealing in JSON files
 let g:vim_json_conceal=0
+
+" set the default value of updatetime to 200ms
+set updatetime=200
 
 "==============================================================================
 
