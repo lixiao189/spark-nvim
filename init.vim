@@ -10,7 +10,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 
 " Plugin for syntax hightlight and indent 
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " Plugin for adding comment
 Plug 'preservim/nerdcommenter'
@@ -83,6 +83,7 @@ let g:coc_global_extensions = ['coc-java',
 			\'coc-go',
 			\'coc-yaml',
 			\'coc-xml',
+            \'@yaegassy/coc-volar',
 			\'coc-pyright',
 			\'coc-phpls',
 			\'coc-markdownlint',
