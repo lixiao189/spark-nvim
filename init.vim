@@ -196,7 +196,7 @@ EOF
 nnoremap <leader>f :NERDTreeToggle<CR>
 
 let NERDTreeShowHidden=1 "Show the hidden file defaultly
-let g:NERDTreeGitStatusConcealBrackets = 1
+let g:NERDTreeGitStatusUseNerdFonts = 1 " you should install nerdfonts by yourself. default: 0
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
