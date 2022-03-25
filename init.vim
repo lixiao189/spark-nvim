@@ -204,6 +204,14 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == ''
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+let NERDTreeIgnore=[
+            \'.git$[[dir]]', 
+            \'dist$[[dir]]', 
+            \'node_modules$[[dir]]', 
+            \'\.d$[[dir]]', 
+            \'\.o$[[file]]', 
+            \'tmp/cache$[[path]]']
+
 " ====================================================
 
 " Some settings of the nerdcommenter plugin
