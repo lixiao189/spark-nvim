@@ -44,10 +44,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'joshdick/onedark.vim'
 call plug#end()
 
+" ==============================================================================
+
 " The basic configuration of neovim
 set relativenumber 
 syntax on
-" The settings of the VIM
 set splitbelow
 set splitright
 set nowrap " 禁止折行 
