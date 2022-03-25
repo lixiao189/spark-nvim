@@ -216,28 +216,24 @@ let NERDTreeIgnore=[
             \'\.o$[[file]]', 
             \'tmp/cache$[[path]]']
 
-" ====================================================
+" ===================================================
 
-" Some settings of the nerdcommenter plugin
-" Create default mappings
-let g:NERDCreateDefaultMappings = 1
+" The settings of the nerdcommenter
+let g:NERDCreateDefaultMappings = 0
+
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
+
+" The key bindings
+map <leader>; <plug>NERDCommenterToggle
+
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
-let g:NERDToggleCheckAllLines = 1
 
 
-" The keybinds
+" ===================================================
+
+" The Other keybinds
 " Compile the current project with run.sh script 
 nnoremap <leader>r :!sh run.sh<CR>
 " The settings of the fzf.vim plugi
