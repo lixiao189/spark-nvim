@@ -29,7 +29,8 @@ Plug 'puremourning/vimspector'
 " The file manager
 Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons' 
+" Plug 'ryanoasis/vim-devicons' 
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
 
 " Insert the pairs automatically
 Plug 'chun-yang/auto-pairs'
