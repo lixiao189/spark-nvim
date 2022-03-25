@@ -43,6 +43,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " The themes of the VIM
 Plug 'joshdick/onedark.vim'
+call plug#end()
 
 " The basic configuration of neovim
 set relativenumber 
