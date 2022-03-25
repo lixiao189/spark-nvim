@@ -1,7 +1,5 @@
 " Manage your plugins here
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
-" Plug 'ryanoasis/vim-devicons' Icons without colours
 Plug 'akinsho/bufferline.nvim'
 
 " Add some icons on some plugins
@@ -30,6 +28,9 @@ Plug 'puremourning/vimspector'
 
 " The file manager
 Plug 'scrooloose/nerdtree' 
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+" Plug 'ryanoasis/vim-devicons' Icons without colours
 
 " Insert the pairs automatically
 Plug 'chun-yang/auto-pairs'
@@ -99,10 +100,10 @@ let g:coc_global_extensions = ['coc-java',
             \'@yaegassy/coc-volar',
 			\'coc-pyright',
 			\'coc-phpls',
-			\'coc-markdownlint',
 			\'coc-html',
 			\'coc-tsserver',
 			\'coc-css']
+autocmd FileType scss setl iskeyword+=@-@
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
@@ -162,6 +163,7 @@ EOF
 
 " The settings of the nerdtree
 let NERDTreeShowHidden=1 "Show the hidden file defaultly
+let g:NERDTreeGitStatusConcealBrackets = 1
 
 " Some settings of the nerdcommenter plugin
 " Create default mappings
