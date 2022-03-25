@@ -29,8 +29,7 @@ Plug 'puremourning/vimspector'
 " The file manager
 Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
-" Plug 'ryanoasis/vim-devicons' Icons without colours
+Plug 'ryanoasis/vim-devicons' 
 
 " Insert the pairs automatically
 Plug 'chun-yang/auto-pairs'
@@ -74,6 +73,15 @@ autocmd FileType go set noexpandtab
 autocmd FileType c,cpp,vue,html,css,ts,js,json set tabstop=2 shiftwidth=2
 
 set guicursor=
+
+" Set the settings of the internal terminal
+tnoremap <Esc> <C-\><C-n>
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+function! OpenTerminal()
+  split term://zsh
+  resize 10
+endfunction
+nnoremap <leader>t :call OpenTerminal()<CR>
 
 " Set the transparent background
 highlight Normal guibg=NONE ctermbg=None 
@@ -157,16 +165,45 @@ nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<
 inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
 inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 
+" ====================================================
+
 " The settings of the bufferline
 " In your init.lua or init.vim
 set termguicolors
 lua << EOF
-require("bufferline").setup{}
+require("bufferline").setup{
+    options = {
+        diagnostics = "coc",
+        diagnostics_update_in_insert = true,
+        offsets = {
+          {
+            filetype = "nerdtree",
+            text = "File Explorer",
+            highlight = "Directory",
+            text_align = "left"
+          }
+        }
+    }
+}
 EOF
 
+" ====================================================
+
 " The settings of the nerdtree
+" Key binding
+nnoremap <leader>f :NERDTreeToggle<CR>
+
 let NERDTreeShowHidden=1 "Show the hidden file defaultly
 let g:NERDTreeGitStatusConcealBrackets = 1
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+" Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" ====================================================
 
 " Some settings of the nerdcommenter plugin
 " Create default mappings
@@ -196,8 +233,6 @@ nnoremap <c-f> :Ag<CR>
 nnoremap <leader>c :Commands<CR> 
 " Show the normal mode mappings
 nnoremap <leader>m :Maps<CR>
-" set the hot key of nerdtree
-nmap <leader>f :NERDTreeToggle<CR>
 
 " Set the plugin for closing tab
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -226,13 +261,20 @@ let g:closetag_regions = {
 " Shortcut for closing tags, default is '>'
 let g:closetag_shortcut = '>'
 
+" ============================================================================
+
 " The ssettings of linght line
 set noshowmode
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
+
 let g:lightline = {
       \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status',
       \   'currentfunction': 'CocCurrentFunction'
