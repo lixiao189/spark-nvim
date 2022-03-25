@@ -15,6 +15,9 @@ Plug 'airblade/vim-gitgutter'
 " Plugin for adding comment
 Plug 'preservim/nerdcommenter'
 
+" Plugin for more vue sfc support
+Plug 'posva/vim-vue'
+
 " The wrapper of the fzf plugin
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -244,6 +247,31 @@ map <leader>; <plug>NERDCommenterToggle
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 
+" The vue comment support
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
+
+" ===================================================
+
+" The vim-vue settings
+let g:vue_pre_processors = 'detect_on_enter'
 
 " ===================================================
 
