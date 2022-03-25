@@ -5,7 +5,9 @@ Plug 'akinsho/bufferline.nvim'
 " Add some icons on some plugins
 Plug 'ryanoasis/vim-devicons'
 
+" The status bar plugin
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 
 " Show the diff signs of the git
 Plug 'airblade/vim-gitgutter'
@@ -272,7 +274,7 @@ let g:closetag_shortcut = '>'
 
 " ============================================================================
 
-" The ssettings of linght line
+" The settings of linght line
 set noshowmode
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
@@ -282,10 +284,21 @@ let g:lightline = {
       \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'cocstatus', 'currentfunction', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
-      \ 'component_function': {
+      \ 'component_function': { 
+      \   'gitbranch': 'gitbranch#name',
       \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction'
+      \   'currentfunction': 'CocCurrentFunction',
+      \   'filetype': 'MyFiletype',
+      \   'fileformat': 'MyFileformat'
       \ },
       \ }
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
