@@ -43,14 +43,15 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " The themes of the VIM
 Plug 'joshdick/onedark.vim'
-call plug#end()
 
 " The basic configuration of neovim
 set relativenumber 
 syntax on
 " The settings of the VIM
+set splitbelow
+set splitright
 set nowrap " 禁止折行 
-let mapleader = "\<space>" " Use the <space> as the leader key
+let mapleader="\<space>" " Use the <space> as the leader key
 set wildmenu " Show the autocompletion of VIM command line
 set tabstop=4 
 set shiftwidth=4
@@ -87,7 +88,8 @@ set updatetime=200
 " The settings of the coc.nvim complete plugins
 set shortmess+=c
 " The list of the lsp plugins
-let g:coc_global_extensions = ['coc-java',
+let g:coc_global_extensions = [
+            \'coc-java',
             \'coc-prettier',
             \'coc-lua',
             \'coc-imselect',
