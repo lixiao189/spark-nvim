@@ -25,6 +25,9 @@ Plug 'junegunn/fzf.vim'
 " Close the html tag automatically
 Plug 'alvan/vim-closetag'
 
+" Highlight tag pair
+Plug 'valloric/MatchTagAlways'
+
 " The lsp server for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
