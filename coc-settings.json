@@ -7,5 +7,7 @@
 
   "volar.autoClosingTags": true,
   "volar.takeOverMode.enabled": true,
-  "volar.diagnostics.tsLocale": "zh-cn"
+  "volar.diagnostics.tsLocale": "zh-cn",
+  
+  "html.autoCreateQuotes": false
 }
