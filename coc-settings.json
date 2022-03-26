@@ -6,8 +6,8 @@
   "prettier.semi": false,
 
   "volar.autoClosingTags": true,
-  "volar.takeOverMode.enabled": true,
   "volar.diagnostics.tsLocale": "zh-cn",
   
-  "html.autoCreateQuotes": false
+  "html.autoCreateQuotes": false,
+  "html.completion.attributeDefaultValue": "empty"
 }
