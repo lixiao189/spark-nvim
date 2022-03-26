@@ -3,5 +3,9 @@
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
   "prettier.printWidth": 110,
-  "prettier.semi": false
+  "prettier.semi": false,
+
+  "volar.autoClosingTags": true,
+  "volar.takeOverMode.enabled": true,
+  "volar.diagnostics.tsLocale": "zh-cn"
 }
