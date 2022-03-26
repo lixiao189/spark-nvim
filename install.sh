@@ -9,5 +9,7 @@ case $(uname) in
         brew install fzf
         brew install ag
         brew install watchman
+        brew tap homebrew/cask-fonts
+        brew install font-fira-code-nerd-font
     ;;
 esac
