@@ -28,4 +28,5 @@ execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/lightline.vim'
 " The vim-vue settings
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/vim-vue.vim'
 
-
+" The gitgutter plugins settings
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/gitgutter.vim'
