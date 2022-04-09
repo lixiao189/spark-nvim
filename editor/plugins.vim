@@ -9,6 +9,15 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 
+" The lsp support
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'tami5/lspsaga.nvim'
+
+" The telescope support
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " Show the diff signs of the git
 Plug 'airblade/vim-gitgutter'
 
@@ -23,9 +32,6 @@ Plug 'alvan/vim-closetag'
 
 " Highlight tag pair
 Plug 'valloric/MatchTagAlways'
-
-" The debugger of the vim
-Plug 'puremourning/vimspector'
 
 " The file manager
 Plug 'scrooloose/nerdtree' 

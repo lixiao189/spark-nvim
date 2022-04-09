@@ -6,8 +6,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 case $(uname) in
     Darwin)
         brew install node@16
-        brew install fzf
-        brew install ag
+        brew install fd
         brew install watchman
         brew tap homebrew/cask-fonts
         brew install font-fira-code-nerd-font

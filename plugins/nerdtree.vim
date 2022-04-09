@@ -1,6 +1,4 @@
 " Key binding
-nnoremap <leader>f :NERDTreeToggle<CR>
-
 let g:NERDTreeGitStatusUseNerdFonts = 1 
 let NERDTreeShowHidden=1 "Show the hidden file defaultly
 

@@ -25,16 +25,6 @@ filetype plugin indent on " required
 autocmd FileType go set noexpandtab
 autocmd FileType c,cpp,vue,html,css,ts,js,json set tabstop=2 shiftwidth=2
 
-
-" Set the settings of the internal terminal
-tnoremap <Esc> <C-\><C-n>
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-function! OpenTerminal()
-  split term://zsh
-  resize 10
-endfunction
-nnoremap <leader>t :call OpenTerminal()<CR>
-
 " Set the transparent background
 highlight Normal guibg=NONE ctermbg=None 
 

@@ -7,6 +7,9 @@ runtime ./editor/basic.vim
 " The settings of the keybinding
 runtime ./editor/keybindings.vim
 
+" The settings of the lsp-server
+runtime ./plugins/lsp.vim
+
 " The settings of the bufferline
 runtime ./plugins/bufferline.vim
 
