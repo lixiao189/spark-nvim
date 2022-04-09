@@ -1,31 +1,31 @@
 " Load plugins for vim
-execute 'source' './editor/plugins.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/editor/plugins.vim'
 
 " Load basic configuration for neovim
-execute 'source' './editor/basic.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/editor/basic.vim'
 
 " The settings of the keybinding
-execute 'source' './editor/keybindings.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/editor/keybindings.vim'
 
 " The settings of the coc.nvim complete plugins
-execute 'source' './plugins/lsp.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/lsp.vim'
 
 " The settings of the bufferline
-execute 'source' './plugins/bufferline.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/bufferline.vim'
 
 " The settings of the nerdtree
-execute 'source' './plugins/nerdtree.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/nerdtree.vim'
 
 " The settings of the closetag plugin
-execute 'source' './plugins/closetag.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/closetag.vim'
 
 " The settings of the nerdcommenter
-execute 'source' './plugins/nerdcommenter.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/nerdcommenter.vim'
 
 " The settings of linght line
-execute 'source' './plugins/lightline.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/lightline.vim'
 
 " The vim-vue settings
-execute 'source' './plugins/vim-vue.vim'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/vim-vue.vim'
 
 
