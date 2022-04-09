@@ -18,7 +18,31 @@ augroup END
 lua << EOF
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'tsserver', 'gopls', 'clangd' }
+local lsp_installer = require "nvim-lsp-installer"
+
+-- Lsp server list
+local servers = { 
+    'pyright', 
+    'tsserver', 
+    'gopls', 
+    'clangd', 
+    'volar', 
+    'jdtls', 
+    'jsonls', 
+    'yamlls',
+    'vimls',
+    'sumneko_lua'
+}
+
+-- Install Server automatically
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found and not server:is_installed() then
+    print("Installing " .. name)
+    server:install()
+  end
+end
+
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     flags = {
