@@ -13,6 +13,11 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'tami5/lspsaga.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+
 
 " The telescope support
 Plug 'nvim-lua/plenary.nvim'

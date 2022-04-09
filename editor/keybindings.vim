@@ -19,6 +19,7 @@ nnoremap <silent><leader>h :Lspsaga hover_doc<CR>
 nnoremap <silent><leader>rn :Lspsaga rename<CR>
 nnoremap <silent><leader>t :Lspsaga open_floaterm<CR>
 nnoremap <silent><leader>gd :Lspsaga preview_definition<CR>
-" ===============================================================
 lua << EOF
+local opts = { noremap=true, silent=true }
+vim.api.nvim_buf_set_keymap(bufnr, 'n', 'F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 EOF
