@@ -41,7 +41,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 
 " Insert the pairs automatically
-Plug 'chun-yang/auto-pairs'
+" Plug 'chun-yang/auto-pairs'
 
 " The indent plugin
 Plug 'yggdroot/indentline'
