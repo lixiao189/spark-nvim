@@ -3,7 +3,6 @@ set termguicolors
 lua << EOF
 require("bufferline").setup{
     options = {
-        diagnostics = "coc",
         diagnostics_update_in_insert = true,
         numbers = function(opts)
             return string.format('%s', opts.ordinal)

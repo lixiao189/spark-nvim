@@ -18,18 +18,11 @@ Plug 'preservim/nerdcommenter'
 " Plugin for more vue sfc support
 Plug 'posva/vim-vue'
 
-" The wrapper of the fzf plugin
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-
 " Close the html tag automatically
 Plug 'alvan/vim-closetag'
 
 " Highlight tag pair
 Plug 'valloric/MatchTagAlways'
-
-" The lsp server for vim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " The debugger of the vim
 Plug 'puremourning/vimspector'
