@@ -1,4 +1,6 @@
 {
+  "suggest.noselect": false,
+
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
