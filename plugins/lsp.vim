@@ -14,7 +14,6 @@ let g:coc_global_extensions = [
             \'@yaegassy/coc-volar',
 			\'coc-pyright',
 			\'coc-phpls',
-            \'coc-snippets',
 			\'coc-html',
 			\'coc-tsserver',
 			\'coc-css']
