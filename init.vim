@@ -1,32 +1,32 @@
 " Load plugins for vim
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/editor/plugins.vim'
+runtime ./editor/plugins.vim
 
 " Load basic configuration for neovim
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/editor/basic.vim'
+runtime ./editor/basic.vim
 
 " The settings of the keybinding
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/editor/keybindings.vim'
+runtime ./editor/keybindings.vim
 
 " The settings of the coc.nvim complete plugins
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/lsp.vim'
+runtime ./plugins/lsp.vim
 
 " The settings of the bufferline
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/bufferline.vim'
+runtime ./plugins/bufferline.vim
 
 " The settings of the nerdtree
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/nerdtree.vim'
+runtime ./plugins/nerdtree.vim
 
 " The settings of the closetag plugin
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/closetag.vim'
+runtime ./plugins/closetag.vim
 
 " The settings of the nerdcommenter
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/nerdcommenter.vim'
+runtime ./plugins/nerdcommenter.vim
 
 " The settings of linght line
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/lightline.vim'
+runtime ./plugins/lightline.vim
 
 " The vim-vue settings
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/vim-vue.vim'
+runtime ./plugins/vim-vue.vim
 
 " The gitgutter plugins settings
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/plugins/gitgutter.vim'
+runtime ./plugins/gitgutter.vim
