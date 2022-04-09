@@ -82,7 +82,6 @@ filetype plugin indent on " required
 autocmd FileType go set noexpandtab
 autocmd FileType c,cpp,vue,html,css,ts,js,json set tabstop=2 shiftwidth=2
 
-set guicursor=
 
 " Set the settings of the internal terminal
 tnoremap <Esc> <C-\><C-n>
