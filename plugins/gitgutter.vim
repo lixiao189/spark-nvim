@@ -1,1 +1,0 @@
-command! GitGutterListHunks GitGutterQuickFix | copen

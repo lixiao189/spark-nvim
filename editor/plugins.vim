@@ -26,7 +26,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Show the diff signs of the git
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 
 " Plugin for adding comment
 Plug 'preservim/nerdcommenter'

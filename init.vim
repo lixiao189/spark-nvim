@@ -28,5 +28,5 @@ runtime ./plugins/lightline.vim
 " The vim-vue settings
 runtime ./plugins/vim-vue.vim
 
-" The gitgutter plugins settings
-runtime ./plugins/gitgutter.vim
+" The gitsigns plugins settings
+runtime ./plugins/gitsigns.vim
