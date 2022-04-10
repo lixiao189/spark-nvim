@@ -32,6 +32,9 @@ Plug 'nvim-telescope/telescope.nvim'
 " Show the diff signs of the git
 Plug 'lewis6991/gitsigns.nvim'
 
+" Auto pairs
+Plug 'windwp/nvim-autopairs'
+
 " The file manager
 Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'

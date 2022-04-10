@@ -36,3 +36,6 @@ runtime ./plugins/indentline.vim
 
 " The gitsigns plugins settings
 runtime ./plugins/gitsigns.vim
+
+" The auto pairs plugin
+runtime ./plugins/autopairs.vim
