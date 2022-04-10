@@ -47,16 +47,15 @@ end
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-local lspconfig = require('lspconfig')
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150,
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+    opts.capabilities = capabilities
+    opts.flags = {
+        debounce_text_changes = 150,
     }
-  }
-end
+    server:setup(opts)
+end)
 
 -- luasnip setup
 local luasnip = require 'luasnip'
