@@ -1,3 +1,6 @@
+" use esc key to clear hightlight of seaching
+nnoremap <esc> :noh<return><esc>
+
 lua << EOF
 local function map(mode, lhs, rhs)
     vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
