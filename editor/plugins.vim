@@ -17,6 +17,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'josa42/nvim-lightline-lsp'
 
 " The git tui client
 Plug 'kdheepak/lazygit.nvim'
@@ -44,7 +45,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 
 " Insert the pairs automatically
-Plug 'chun-yang/auto-pairs'
+" Plug 'chun-yang/auto-pairs'
 
 " The indent plugin
 Plug 'yggdroot/indentline'
