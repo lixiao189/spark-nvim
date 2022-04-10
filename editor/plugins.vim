@@ -19,6 +19,9 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'josa42/nvim-lightline-lsp'
 
+" The plugin for key bindings 
+Plug 'folke/which-key.nvim'
+
 " The git tui client
 Plug 'kdheepak/lazygit.nvim'
 
@@ -48,7 +51,7 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 " Plug 'chun-yang/auto-pairs'
 
 " The indent plugin
-Plug 'yggdroot/indentline'
+" Plug 'yggdroot/indentline'
 
 " The plugin to preview markdown file
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }

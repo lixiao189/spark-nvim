@@ -1,48 +1,55 @@
-" Compile the current project with run.sh script 
-nnoremap <leader>r :!sh run.sh<CR>
-
-" Find something using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" The keybinds of nerd tree
-nnoremap <leader>f :NERDTreeToggle<CR>
-
-" The float terminal
-nnoremap <silent><leader>t :Lspsaga open_floaterm<CR>
-
-" The keybindings of code actions (not lsp code actions)
-map <leader>c; <plug>NERDCommenterToggle
-nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-nnoremap <silent><leader>ch :Lspsaga hover_doc<CR>
-nnoremap <silent><leader>cd :Lspsaga show_line_diagnostics<CR>
-nnoremap <silent><leader>crn :Lspsaga rename<CR>
-
-nnoremap <silent> [cd :Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent> ]cd :Lspsaga diagnostic_jump_prev<CR>
 lua << EOF
 local opts = { noremap=true, silent=true }
-vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-EOF
 
-" The keybindings of git
-" Git gui
-nnoremap <silent><leader>gg :LazyGit<CR> 
-" Git signs
-nnoremap <silent>[gc :Gitsigns prev_hunk<CR> 
-nnoremap <silent>]gc :Gitsigns next_hunk<CR> 
-nnoremap <leader>gs :Gitsigns stage_hunk<CR>
-nnoremap <leader>gs :Gitsigns stage_hunk<CR>
-nnoremap <leader>gr :Gitsigns reset_hunk<CR>
-nnoremap <leader>gr :Gitsigns reset_hunk<CR>
-nnoremap <leader>gS :Gitsigns stage_buffer<CR> 
-nnoremap <leader>gu :Gitsigns undo_stage_hunk<CR> 
-nnoremap <leader>gR :Gitsigns reset_buffer<CR> 
+local wk = require("which-key")
 
-lua << EOF
-local opts = { noremap=true, silent=true }
-vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>gp', '<cmd>Gitsigns preview_hunk<CR>', opts)
-vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>gd', '<cmd>Gitsigns diffthis<CR>', opts)
+wk.register({
+  t = { ":Lspsaga open_floaterm<cr>", "Open terminal" },
+  m = { ":NERDTreeToggle<cr>", "Toggle file manager" },
+  r = { ":!sh run.sh<cr>", "Run code with run.sh" },  
+  f = {
+    name = "+find",
+    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    g = { "<cmd>Telescope live_grep<cr>", "Search text globally" },
+  },
+  g = {
+    name = "+git action",
+    t = { "<cmd>LazyGit<cr>", "Show git tui" },
+    p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview the hunk changes" },
+    d = { "<cmd>Gitsigns diffthis<CR>", "Show diff in this buffer" },
+    s = { ":Gitsigns stage_hunk<CR>", "Stage hunk" },
+    r = { ":Gitsigns reset_hunk<CR>", "Reset hunk" },
+    S = { ":Gitsigns stage_buffer<CR>", "Stage buffer" },
+    u = { ":Gitsigns undo_stage_hunk<CR>", "Undo stage" },
+    R = { ":Gitsigns reset_buffer<CR>", "Reset buffer" },
+    j = {
+      name = "+jump hunk",
+      p = { ":Gitsigns prev_hunk<CR>", "Previous change" },
+      n = { ":Gitsigns next_hunk<CR>", "Next change" },
+    }
+  },
+  b = {
+    name = "+buffer",
+    g = { "<Cmd>BufferLinePick<CR>", "Go to buffer" },
+    c = { "<Cmd>BufferLinePickClose<CR>", "Close buffer" },
+  },
+  c = {
+    name = "+code action",
+    c = { "<plug>NERDCommenterToggle", "Comment code" },
+    a = { ":Lspsaga code_action<cr>", "Lsp Code action" },
+    h = { ":Lspsaga hover_doc<cr>", "Show Lsp hover" },
+    d = { ":Lspsaga show_line_diagnostics<cr>", "Show code diagnostics" },
+    f = { ":lua vim.lsp.buf.formatting()<CR>", "Format the code" },
+    r = { ":Lspsaga rename<cr>", "Rename variable" },
+    dn = { ":Lspsaga diagnostic_jump_next<cr>", "Jump to next diagnostic" },
+    dp = { ":Lspsaga diagnostic_jump_prev<CR>", "Jump to previous diagnostic" },
+  },
+}, { prefix = "<leader>" })
+
+wk.setup{
+  layout = {
+    align = "center",
+  },
+}
 EOF
