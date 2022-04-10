@@ -1,3 +1,5 @@
+set noshowmode
+lua << EOF
 local lualine = require('lualine')
 -- Color table for highlights
 -- stylua: ignore
@@ -216,3 +218,4 @@ ins_right {
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
+EOF

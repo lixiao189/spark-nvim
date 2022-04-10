@@ -11,7 +11,7 @@ runtime ./editor/keybindings.vim
 runtime ./plugins/lsp.vim
 
 " The settings of the status line
-runtime ./plugins/statusline.lua
+runtime ./plugins/statusline.vim
 
 " The settings of the bufferline
 runtime ./plugins/bufferline.vim
