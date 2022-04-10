@@ -6,8 +6,6 @@ Plug 'akinsho/bufferline.nvim'
 Plug 'ryanoasis/vim-devicons'
 
 " The status bar plugin
-Plug 'itchyny/lightline.vim'
-Plug 'itchyny/vim-gitbranch'
 
 " The lsp support
 Plug 'neovim/nvim-lspconfig'
@@ -16,8 +14,7 @@ Plug 'tami5/lspsaga.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'josa42/nvim-lightline-lsp'
+Plug 'L3MON4D3/LuaSnip' 
 
 " The plugin for key bindings 
 Plug 'folke/which-key.nvim'
@@ -36,10 +33,8 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
 
 " The file manager
-Plug 'scrooloose/nerdtree' 
-Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'ryanoasis/vim-devicons' 
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Tree sitter plugin
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

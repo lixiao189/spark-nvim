@@ -13,8 +13,8 @@ runtime ./plugins/lsp.vim
 " The settings of the bufferline
 runtime ./plugins/bufferline.vim
 
-" The settings of the nerdtree
-runtime ./plugins/nerdtree.vim
+" The settings of the file tree (file manager) 
+runtime ./plugins/tree.vim
 
 " The settings of the closetag plugin
 runtime ./plugins/closetag.vim
@@ -25,8 +25,8 @@ runtime ./plugins/treesitter.vim
 " The settings of the nerdcommenter
 runtime ./plugins/commenter.vim
 
-" The settings of linght line
-runtime ./plugins/lightline.vim
+" The settings of line
+runtime ./plugins/line.vim
 
 " The vim-vue settings
 runtime ./plugins/vim-vue.vim

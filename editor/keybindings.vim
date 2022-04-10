@@ -9,7 +9,7 @@ map('x', '<C-_>', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.f
 local wk = require("which-key")
 wk.register({
   t = { ":Lspsaga open_floaterm<cr>", "Open terminal" },
-  m = { ":NERDTreeToggle<cr>", "Toggle file manager" },
+  m = { ":NvimTreeToggle<CR>", "Toggle file manager" },
   r = { ":!sh run.sh<cr>", "Run code with run.sh" },  
   f = {
     name = "+find",
