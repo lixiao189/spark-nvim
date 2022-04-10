@@ -2,10 +2,8 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'akinsho/bufferline.nvim'
 
-" Add some icons on some plugins
-Plug 'ryanoasis/vim-devicons'
-
-" The status bar plugin
+" Status line plugin
+Plug 'nvim-lualine/lualine.nvim'
 
 " The lsp support
 Plug 'neovim/nvim-lspconfig'

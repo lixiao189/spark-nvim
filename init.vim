@@ -10,6 +10,9 @@ runtime ./editor/keybindings.vim
 " The settings of the lsp-server
 runtime ./plugins/lsp.vim
 
+" The settings of the status line
+runtime ./plugins/statusline.lua
+
 " The settings of the bufferline
 runtime ./plugins/bufferline.vim
 
