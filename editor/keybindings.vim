@@ -1,8 +1,12 @@
 lua << EOF
-local opts = { noremap=true, silent=true }
+local function map(mode, lhs, rhs)
+    vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
+end
+-- Linewise comment toggle using C-/
+map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>')
+map('x', '<C-_>', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
 local wk = require("which-key")
-
 wk.register({
   t = { ":Lspsaga open_floaterm<cr>", "Open terminal" },
   m = { ":NERDTreeToggle<cr>", "Toggle file manager" },
@@ -36,7 +40,6 @@ wk.register({
   },
   c = {
     name = "+code action",
-    c = { "<plug>NERDCommenterToggle", "Comment code" },
     a = { ":Lspsaga code_action<cr>", "Lsp Code action" },
     h = { ":Lspsaga hover_doc<cr>", "Show Lsp hover" },
     d = { ":Lspsaga show_line_diagnostics<cr>", "Show code diagnostics" },

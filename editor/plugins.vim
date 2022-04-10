@@ -32,26 +32,20 @@ Plug 'nvim-telescope/telescope.nvim'
 " Show the diff signs of the git
 Plug 'lewis6991/gitsigns.nvim'
 
-" Plugin for adding comment
-Plug 'preservim/nerdcommenter'
-
-" Plugin for more vue sfc support
-Plug 'posva/vim-vue'
-
-" Close the html tag automatically
-Plug 'alvan/vim-closetag'
-
 " The file manager
 Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'ryanoasis/vim-devicons' 
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 
-" Insert the pairs automatically
-" Plug 'chun-yang/auto-pairs'
+" Tree sitter plugin
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" The commenter
+Plug 'numToStr/Comment.nvim'
 
 " The indent plugin
-" Plug 'yggdroot/indentline'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " The plugin to preview markdown file
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }

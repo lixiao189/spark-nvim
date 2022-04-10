@@ -19,14 +19,20 @@ runtime ./plugins/nerdtree.vim
 " The settings of the closetag plugin
 runtime ./plugins/closetag.vim
 
+" The settings of the treesitter
+runtime ./plugins/treesitter.vim
+
 " The settings of the nerdcommenter
-runtime ./plugins/nerdcommenter.vim
+runtime ./plugins/commenter.vim
 
 " The settings of linght line
 runtime ./plugins/lightline.vim
 
 " The vim-vue settings
 runtime ./plugins/vim-vue.vim
+
+" The indent line pluggin settigns
+runtime ./plugins/indentline.vim
 
 " The gitsigns plugins settings
 runtime ./plugins/gitsigns.vim
