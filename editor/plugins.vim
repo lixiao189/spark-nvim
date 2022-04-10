@@ -18,6 +18,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
+" The git tui client
+Plug 'kdheepak/lazygit.nvim'
 
 " The telescope support
 Plug 'nvim-lua/plenary.nvim'
