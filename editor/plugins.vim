@@ -35,9 +35,6 @@ Plug 'posva/vim-vue'
 " Close the html tag automatically
 Plug 'alvan/vim-closetag'
 
-" Highlight tag pair
-Plug 'valloric/MatchTagAlways'
-
 " The file manager
 Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'

@@ -25,7 +25,7 @@ local servers = {
     'pyright', 
     'tsserver', 
     'gopls', 
-    'ccls', 
+    'clangd', 
     'cmake',
     'volar', 
     'jdtls', 
@@ -52,9 +52,6 @@ local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
     local opts = {}
     opts.capabilities = capabilities
-    opts.flags = {
-        debounce_text_changes = 150,
-    }
     server:setup(opts)
 end)
 
