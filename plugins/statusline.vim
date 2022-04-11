@@ -45,7 +45,7 @@ local config = {
     --   inactive = { c = { fg = colors.fg, bg = colors.bg } },
     -- },
     theme = 'onedark',
-    disabled_filetypes = {'NvimTree'}
+    disabled_filetypes = { 'NvimTree', 'Outline' }
   },
   sections = {
     -- these are to remove the defaults
