@@ -13,6 +13,9 @@ runtime ./plugins/lsp.vim
 " The settings of the status line
 runtime ./plugins/statusline.vim
 
+" The settings of the symbol outline plugin
+runtime ./plugins/symboloutline.vim
+
 " The settings of the bufferline
 runtime ./plugins/bufferline.vim
 
