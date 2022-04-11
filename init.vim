@@ -13,6 +13,9 @@ runtime ./plugins/lsp.vim
 " The settings of the status line
 runtime ./plugins/statusline.vim
 
+" The dash board vim plugin
+runtime ./plugins/dashboard.vim
+
 " The settings of the symbol outline plugin
 runtime ./plugins/symboloutline.vim
 

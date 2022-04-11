@@ -4,7 +4,8 @@ let g:indent_blankline_filetype_exclude = ["NvimTree",
       \"lspinstallinfo", 
       \"help", 
       \"checkhealth", 
-      \"Outline"
+      \"Outline",
+      \"dashboard",
       \]
 
 

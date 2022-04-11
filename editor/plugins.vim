@@ -1,6 +1,7 @@
 " Manage your plugins here
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'akinsho/bufferline.nvim'
+Plug 'glepnir/dashboard-nvim'
 
 " Status line plugin
 Plug 'nvim-lualine/lualine.nvim'
