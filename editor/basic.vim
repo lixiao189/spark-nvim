@@ -7,6 +7,8 @@ set nowrap " 禁止折行
 let mapleader="\<space>" " Use the <space> as the leader key
 set wildmenu " Show the autocompletion of VIM command line
 set tabstop=4 
+set scrolloff=8
+set sidescrolloff=8
 set shiftwidth=4
 set backspace=2 "设置删除键为增强模式 
 set autoindent 
