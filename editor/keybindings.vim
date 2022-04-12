@@ -46,11 +46,15 @@ wk.register({
     a = { ":Lspsaga code_action<cr>", "Lsp Code action" },
     h = { ":Lspsaga hover_doc<cr>", "Show Lsp hover" },
     s = { ":SymbolsOutline<cr>", "Symbol outline"},
-    d = { ":Lspsaga show_line_diagnostics<cr>", "Show code diagnostics" },
     f = { ":lua vim.lsp.buf.formatting()<CR>", "Format the code" },
     r = { ":Lspsaga rename<cr>", "Rename variable" },
-    dn = { ":Lspsaga diagnostic_jump_next<cr>", "Jump to next diagnostic" },
-    dp = { ":Lspsaga diagnostic_jump_prev<CR>", "Jump to previous diagnostic" },
+    d = {
+      name = "+diagnostic",
+      n = { ":Lspsaga diagnostic_jump_next<cr>", "Jump to next diagnostic" },
+      p = { ":Lspsaga diagnostic_jump_prev<CR>", "Jump to previous diagnostic" },
+    },
+    D = { ":Telescope lsp_definitions<cr>", "Jump to defination" },
+    R = { ":Telescope lsp_references<cr>", "Show the references" },
   },
 }, { prefix = "<leader>" })
 
