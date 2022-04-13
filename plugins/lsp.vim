@@ -77,6 +77,14 @@ lsp_installer.on_server_ready(function(server)
     opts.on_attach = function(client, bufnr)
       lsp_signature.on_attach()      
     end
+
+    if (server.name == "volar") then
+      opts.on_attach = function(client)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+      end
+    end
+
     server:setup(opts)
 end)
 
@@ -122,12 +130,18 @@ cmp.setup {
   },
 }
 
--- auto format on saving
-vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
-
 -- prettier settings
 local null_ls = require("null-ls")
 local prettier = require("prettier")
+
+null_ls.setup({
+  on_attach = function(client, bufnr)
+    if client.resolved_capabilities.document_formatting then
+      -- format on save
+      vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+    end
+  end,
+})
 
 prettier.setup({
   bin = 'prettier', -- or `prettierd`
