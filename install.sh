@@ -5,6 +5,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 # Install the dependencies on Mac
 case $(uname) in
     Darwin)
+        brew install prettier
         brew install node@16
         brew install fd
         brew install watchman

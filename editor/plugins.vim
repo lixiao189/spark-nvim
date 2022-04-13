@@ -16,6 +16,8 @@ Plug 'onsails/lspkind-nvim'
 " The symbol tree plugin
 Plug 'simrat39/symbols-outline.nvim'  
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'MunifTanjim/prettier.nvim'
 
 " The plugin for key bindings 
 Plug 'folke/which-key.nvim'
