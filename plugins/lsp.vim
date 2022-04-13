@@ -31,6 +31,11 @@ augroup lspsaga_filetypes
 augroup END
 
 lua << EOF
+local lsp_signature = require "lsp_signature"
+lsp_signature.setup {
+  floating_window = false,
+}
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local lsp_installer = require "nvim-lsp-installer"
@@ -69,6 +74,9 @@ lsp_installer.on_server_ready(function(server)
     -- Turn off snippet support for lsp 
     capabilities.textDocument.completion.completionItem.snippetSupport = false
     opts.capabilities = capabilities
+    opts.on_attach = function(client, bufnr)
+      lsp_signature.on_attach()      
+    end
     server:setup(opts)
 end)
 
