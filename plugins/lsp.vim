@@ -78,7 +78,7 @@ lsp_installer.on_server_ready(function(server)
       lsp_signature.on_attach()      
     end
 
-    if (server.name == "volar") then
+    if (server.name == "volar" or server.name == "tsserver") then
       opts.on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
@@ -147,17 +147,13 @@ prettier.setup({
   bin = 'prettier', -- or `prettierd`
   filetypes = {
     "css",
-    "graphql",
     "html",
     "javascript",
     "javascriptreact",
-    "json",
     "less",
-    "markdown",
     "scss",
     "typescript",
     "typescriptreact",
-    "yaml",
     "vue",
   },
 
