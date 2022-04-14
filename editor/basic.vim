@@ -17,7 +17,6 @@ set mouse=a " Enable the support for the mouse event
 set cul
 set laststatus=2 
 set shortmess+=I " Don't show the introduction of the VIM
-" set statusline=%F%m%r%h%w\ %=\ [%l,\ %v]\  
 set expandtab
 let g:onedark_termcolors=16
 colorscheme onedark
@@ -37,10 +36,15 @@ let g:vim_json_conceal=0
 set updatetime=300
 
 lua << EOF
+vim.opt.termguicolors = true
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
 vim.opt.smartcase = true -- smart case
 vim.opt.smartindent = true -- make indenting smarter again
+vim.opt.title = true -- set the title of window to the value of the titlestring
+vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
+vim.opt.pumheight = 10 -- pop up menu height
+vim.opt.swapfile = false -- creates a swapfile
 EOF

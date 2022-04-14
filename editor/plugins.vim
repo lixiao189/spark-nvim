@@ -6,6 +6,9 @@ Plug 'glepnir/dashboard-nvim'
 " Status line plugin
 Plug 'nvim-lualine/lualine.nvim'
 
+" Notify plugin
+Plug 'rcarriga/nvim-notify'
+
 " The lsp support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
