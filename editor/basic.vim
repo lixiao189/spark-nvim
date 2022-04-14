@@ -34,4 +34,13 @@ highlight Normal guibg=NONE ctermbg=None
 let g:vim_json_conceal=0
 
 " set the default value of updatetime to 200ms
-set updatetime=200
+set updatetime=300
+
+lua << EOF
+vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
+vim.opt.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time
+vim.opt.splitbelow = true -- force all horizontal splits to go below current window
+vim.opt.splitright = true -- force all vertical splits to go to the right of current window
+vim.opt.smartcase = true -- smart case
+vim.opt.smartindent = true -- make indenting smarter again
+EOF

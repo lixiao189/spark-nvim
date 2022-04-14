@@ -8,6 +8,10 @@ require'nvim-treesitter.configs'.setup{
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
+  
+  indent = {
+    enable = true
+  },
 
   -- List of parsers to ignore installing
   ignore_install = { },
