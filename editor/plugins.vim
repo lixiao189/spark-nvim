@@ -9,6 +9,9 @@ Plug 'nvim-lualine/lualine.nvim'
 " Notify plugin
 Plug 'rcarriga/nvim-notify'
 
+" Scroll bar
+Plug 'petertriho/nvim-scrollbar'
+
 " The lsp support
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'

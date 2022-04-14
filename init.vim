@@ -19,6 +19,9 @@ runtime ./plugins/notify.vim
 " The dash board vim plugin
 runtime ./plugins/dashboard.vim
 
+" The scroll bar plugin
+runtime ./plugins/scrollbar.vim
+
 " The settings of the symbol outline plugin
 runtime ./plugins/symboloutline.vim
 
