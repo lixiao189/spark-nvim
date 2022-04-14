@@ -1,6 +1,9 @@
 " Manage your plugins here
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'akinsho/bufferline.nvim'
+Plug 'famiu/bufdelete.nvim'
+
+" The welcome plugin
 Plug 'glepnir/dashboard-nvim'
 
 " Status line plugin
@@ -27,6 +30,9 @@ Plug 'MunifTanjim/prettier.nvim'
 
 " The plugin for key bindings 
 Plug 'folke/which-key.nvim'
+
+" Inner terminal
+Plug 'akinsho/toggleterm.nvim'
 
 " The git tui client
 Plug 'kdheepak/lazygit.nvim'

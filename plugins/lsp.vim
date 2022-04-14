@@ -165,15 +165,15 @@ prettier.setup({
   -- html_whitespace_sensitivity = "css",
   -- jsx_bracket_same_line = false,
   -- jsx_single_quote = false,
-  -- print_width = 80,
+  print_width = 100,
   -- prose_wrap = "preserve",
   -- quote_props = "as-needed",
-  -- semi = true,
-  -- single_quote = false,
-  -- tab_width = 2,
+  semi = true,
+  single_quote = false,
+  tab_width = 2,
   -- trailing_comma = "es5",
-  -- use_tabs = false,
-  -- vue_indent_script_and_style = false,
+  use_tabs = false,
+  vue_indent_script_and_style = false,
 })
 
 EOF

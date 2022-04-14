@@ -44,7 +44,7 @@ vim.opt.splitright = true -- force all vertical splits to go to the right of cur
 vim.opt.smartcase = true -- smart case
 vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.title = true -- set the title of window to the value of the titlestring
-vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
+vim.opt.titlestring = "nvim" -- what the title of the window will be set to
 vim.opt.pumheight = 10 -- pop up menu height
 vim.opt.swapfile = false -- creates a swapfile
 EOF
