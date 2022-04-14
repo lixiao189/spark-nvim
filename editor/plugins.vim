@@ -2,6 +2,7 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'akinsho/bufferline.nvim'
 Plug 'famiu/bufdelete.nvim'
+Plug 'antoinemadec/FixCursorHold.nvim'
 
 " The welcome plugin
 Plug 'glepnir/dashboard-nvim'
@@ -21,6 +22,7 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'tami5/lspsaga.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
 Plug 'onsails/lspkind-nvim'
 " The symbol tree plugin
 Plug 'simrat39/symbols-outline.nvim'  

@@ -33,7 +33,8 @@ highlight Normal guibg=NONE ctermbg=None
 let g:vim_json_conceal=0
 
 " set the default value of updatetime to 200ms
-set updatetime=300
+set updatetime=200
+let g:cursorhold_updatetime = 200
 
 lua << EOF
 vim.opt.termguicolors = true
