@@ -18,6 +18,7 @@ set cul
 set laststatus=2 
 set shortmess+=I " Don't show the introduction of the VIM
 set expandtab
+set guicursor=i:hor1
 let g:onedark_termcolors=16
 colorscheme onedark
 filetype plugin indent on " required
