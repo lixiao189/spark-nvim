@@ -2,12 +2,20 @@
 nnoremap <esc> :noh<return><esc>
 
 lua << EOF
+-- Resize with arrows
+
+-- The windows resize keybindings
+
 local function map(mode, lhs, rhs)
     vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
 end
 -- Linewise comment toggle using C-/
 map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>')
 map('x', '<C-_>', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+map("n", "<A-Down>", ":resize -2<CR>")
+map("n", "<A-Up>", ":resize +2<CR>")
+map("n", "<A-Left>", ":vertical resize -2<CR>")
+map("n", "<A-Right>", ":vertical resize +2<CR>")
 
 local wk = require("which-key")
 wk.register({
