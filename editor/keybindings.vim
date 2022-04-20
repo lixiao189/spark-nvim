@@ -2,20 +2,22 @@
 nnoremap <esc> :noh<return><esc>
 
 lua << EOF
--- Resize with arrows
-
--- The windows resize keybindings
-
 local function map(mode, lhs, rhs)
     vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
 end
 -- Linewise comment toggle using C-/
 map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>')
 map('x', '<C-_>', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+
 map("n", "<A-Down>", ":resize -2<CR>")
 map("n", "<A-Up>", ":resize +2<CR>")
 map("n", "<A-Left>", ":vertical resize -2<CR>")
 map("n", "<A-Right>", ":vertical resize +2<CR>")
+
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
 
 local wk = require("which-key")
 wk.register({
@@ -25,7 +27,8 @@ wk.register({
   f = {
     name = "+find",
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    o = { "<cmd>Telescope oldfiles<cr>", "Show recent old file" },
+    r = { "<cmd>lua require('spectre').open()<cr>", "Find and replace" },
     g = { "<cmd>Telescope live_grep<cr>", "Search text globally" },
   },
   g = {

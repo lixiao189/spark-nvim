@@ -7,6 +7,10 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 " The welcome plugin
 Plug 'glepnir/dashboard-nvim'
 
+" The search and replace plugin
+Plug 'nvim-lua/plenary.nvim'
+Plug 'windwp/nvim-spectre'
+
 " Status line plugin
 Plug 'nvim-lualine/lualine.nvim'
 

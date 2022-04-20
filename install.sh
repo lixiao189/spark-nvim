@@ -8,6 +8,7 @@ case $(uname) in
         brew install prettier
         brew install node@16
         brew install fd
+        brew install gnu-sed
         brew install watchman
         brew tap homebrew/cask-fonts
         brew install font-fira-code-nerd-font
