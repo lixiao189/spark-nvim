@@ -7,6 +7,9 @@ runtime ./editor/basic.vim
 " The settings of the keybinding
 runtime ./editor/keybindings.vim
 
+" The setup settigns for some small plugin
+runtime ./plugins/init.lua
+
 " The settings of the lsp-server
 runtime ./plugins/lsp.vim
 
@@ -48,9 +51,6 @@ runtime ./plugins/vim-vue.vim
 
 " The indent line pluggin settigns
 runtime ./plugins/indentline.vim
-
-" The gitsigns plugins settings
-runtime ./plugins/gitsigns.vim
 
 " The auto pairs plugin
 runtime ./plugins/autopairs.vim
