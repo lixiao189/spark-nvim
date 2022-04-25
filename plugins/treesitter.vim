@@ -4,7 +4,7 @@ set foldlevel=99
 
 lua << EOF
 require'nvim-treesitter.configs'.setup{
-  ensure_installed = "maintained",
+  ensure_installed = "all",
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
