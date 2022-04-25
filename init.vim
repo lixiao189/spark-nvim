@@ -16,6 +16,9 @@ runtime ./plugins/lsp.vim
 " The settings of the status line
 runtime ./plugins/statusline.vim
 
+" The markdown preview plugin
+runtime ./plugins/markdown.lua
+
 " The notify plugin
 runtime ./plugins/notify.vim
 

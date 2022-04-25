@@ -52,7 +52,8 @@ local servers = {
     'jsonls', 
     'yamlls',
     'vimls',
-    'sumneko_lua'
+    'sumneko_lua',
+    'intelephense',
 }
 
 -- Install Server automatically
@@ -134,6 +135,18 @@ lsp_installer.on_server_ready(function(server)
         client.resolved_capabilities.document_range_formatting = false
       end
     end
+
+    if (server.name == "sumneko_lua") then
+      opts.settings = {
+        Lua = {
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = {'vim'},
+          }
+        }
+        
+      }
+    end 
 
     server:setup(opts)
 end)

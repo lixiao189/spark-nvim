@@ -7,12 +7,8 @@
 ``` bash
 init.vim 这是我的配置文件
 install.sh 用来安装 VIM-Plug 插件
+editor/ 编辑器相关的配置文件
+plugins/ 插件配置文件
 ```
 
-## 日后的目标
-
-- [ ] Vue 环境搭建
-- [ ] Vim Spector 调试器使用
-- [ ] 自动中英文切换
-- [ ] AirLine 安装
-- [ ] 配置文件分文件存储
+因为现在的代码编辑器还是
