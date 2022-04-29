@@ -65,6 +65,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " Tree sitter plugin
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'windwp/nvim-ts-autotag'
 
 " The commenter
 Plug 'numToStr/Comment.nvim'
