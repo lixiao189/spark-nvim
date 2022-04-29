@@ -22,50 +22,56 @@ local lspsaga = require 'lspsaga'
 lspsaga.setup()
 EOF
 augroup lspsaga_filetypes
-  autocmd!
-  autocmd FileType LspsagaHover nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-  autocmd FileType LspsagaCodeAction nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-  autocmd FileType LspsagaFloaterm nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-  autocmd FileType LspsagaDiagnostic nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-  autocmd FileType LspsagaRename nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
+autocmd!
+autocmd FileType LspsagaHover nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
+autocmd FileType LspsagaCodeAction nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
+autocmd FileType LspsagaFloaterm nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
+autocmd FileType LspsagaDiagnostic nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
+autocmd FileType LspsagaRename nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
 augroup END
 
 lua << EOF
+-- Lsp signature settings
 local lsp_signature = require "lsp_signature"
 lsp_signature.setup {
   floating_window = false,
 }
 
--- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local lsp_installer = require "nvim-lsp-installer"
 
 -- Lsp server list
 local servers = { 
-    'pyright', 
-    'tsserver', 
-    'gopls', 
-    'clangd', 
-    'cmake',
-    'volar', 
-    'jdtls', 
-    'jsonls', 
-    'yamlls',
-    'vimls',
-    'sumneko_lua',
-    'intelephense',
+  'pyright', 
+  'tsserver', 
+  'gopls', 
+  'clangd', 
+  'cmake',
+  'volar', 
+  'jdtls', 
+  'jsonls', 
+  'yamlls',
+  'vimls',
+  'sumneko_lua',
+  'intelephense',
 }
 
 -- Install Server automatically
 for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found and not server:is_installed() then
-    print("Installing " .. name)
-    server:install()
-  end
+local server_is_found, server = lsp_installer.get_server(name)
+if server_is_found and not server:is_installed() then
+  print("Installing " .. name)
+  server:install()
+end
 end
 
 -- nvim-cmp setup
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local luasnip = require("luasnip")
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
 cmp.setup {
@@ -83,7 +89,7 @@ cmp.setup {
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   mapping = {
@@ -93,20 +99,27 @@ cmp.setup {
       -- behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = function(fallback)
+
+    ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
       else
         fallback()
       end
-    end,
-    ['<S-Tab>'] = function(fallback)
+    end, { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
-    end,
+    end, { "i", "s" }), 
   },
   sources = {
     { name = 'nvim_lsp' },
@@ -115,40 +128,39 @@ cmp.setup {
   },
 }
 
--- The settings of auto completion
--- Add additional capabilities supported by nvim-cmp
+-- The settings of auto completion and lsp setup
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
-    local opts = {}
-    -- Turn off snippet support for lsp 
-    capabilities.textDocument.completion.completionItem.snippetSupport = false
-    opts.capabilities = capabilities
-    opts.on_attach = function(client, bufnr)
-      lsp_signature.on_attach()      
-    end
+  local opts = {}
+  -- Turn off snippet support for lsp 
+  -- capabilities.textDocument.completion.completionItem.snippetSupport = false
+  opts.capabilities = capabilities
+  opts.on_attach = function(client, bufnr)
+    lsp_signature.on_attach()      
+  end
 
-    if (server.name == "volar" or server.name == "tsserver") then
-      opts.on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
-      end
+  if (server.name == "volar" or server.name == "tsserver") then
+    opts.on_attach = function(client)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
     end
+  end
 
-    if (server.name == "sumneko_lua") then
-      opts.settings = {
-        Lua = {
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = {'vim'},
-          }
+  if (server.name == "sumneko_lua") then
+    opts.settings = {
+      Lua = {
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = {'vim'},
         }
-        
       }
-    end 
+      
+    }
+  end 
 
-    server:setup(opts)
+  server:setup(opts)
 end)
 
 
@@ -160,33 +172,33 @@ null_ls.setup{
 }
 
 prettier.setup{
-  bin = 'prettier', -- or `prettierd`
-  filetypes = {
-    "css",
-    "html",
-    "javascript",
-    "javascriptreact",
-    "less",
-    "scss",
-    "typescript",
-    "typescriptreact",
-    "vue",
-  },
+bin = 'prettier', -- or `prettierd`
+filetypes = {
+  "css",
+  "html",
+  "javascript",
+  "javascriptreact",
+  "less",
+  "scss",
+  "typescript",
+  "typescriptreact",
+  "vue",
+},
 
-  -- prettier format options (you can use config files too. ex: `.prettierrc`)
-  -- arrow_parens = "always",
-  -- bracket_spacing = true,
-  -- embedded_language_formatting = "auto",
-  -- end_of_line = "lf",
-  -- html_whitespace_sensitivity = "css",
-  -- jsx_bracket_same_line = false,
-  -- jsx_single_quote = false,
-  -- print_width = 110,
-  -- prose_wrap = "preserve",
-  -- quote_props = "as-needed",
-  -- semi = true,
-  -- single_quote = false,
-  -- tab_width = 2,
+-- prettier format options (you can use config files too. ex: `.prettierrc`)
+-- arrow_parens = "always",
+-- bracket_spacing = true,
+-- embedded_language_formatting = "auto",
+-- end_of_line = "lf",
+-- html_whitespace_sensitivity = "css",
+-- jsx_bracket_same_line = false,
+-- jsx_single_quote = false,
+-- print_width = 110,
+-- prose_wrap = "preserve",
+-- quote_props = "as-needed",
+-- semi = true,
+-- single_quote = false,
+-- tab_width = 2,
   -- trailing_comma = "es5",
   -- use_tabs = false,
   -- vue_indent_script_and_style = false,
