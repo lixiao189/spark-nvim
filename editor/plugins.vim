@@ -40,6 +40,7 @@ Plug 'simrat39/symbols-outline.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'MunifTanjim/prettier.nvim'
+Plug 'hrsh7th/cmp-cmdline'
 
 " The plugin for key bindings 
 Plug 'folke/which-key.nvim'

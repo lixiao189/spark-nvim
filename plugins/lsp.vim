@@ -112,6 +112,21 @@ cmp.setup {
   },
 }
 
+-- The settings of the cmdline complete
+require'cmp'.setup.cmdline(':', {
+  sources = {
+    { name = 'cmdline' },
+    { name = 'buffer' },
+  },
+  mapping = cmp.mapping.preset.cmdline({}),
+})
+require'cmp'.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  },
+  mapping = cmp.mapping.preset.cmdline({}),
+})
+
 -- The settings of auto completion and lsp setup
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
