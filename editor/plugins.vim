@@ -78,4 +78,5 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 
 " The themes of the VIM
 Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
