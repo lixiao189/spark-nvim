@@ -3,6 +3,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'akinsho/bufferline.nvim'
 Plug 'famiu/bufdelete.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'dstein64/vim-startuptime'
 
 " The welcome plugin
 Plug 'glepnir/dashboard-nvim'
@@ -78,5 +79,5 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 
 " The themes of the VIM
 Plug 'joshdick/onedark.vim'
-Plug 'morhetz/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'
 call plug#end()
