@@ -10,5 +10,8 @@ require'nvim-tree'.setup {
       resize_window = true,
     },
   },
+  git = {
+    ignore = false,
+  }
 }
 EOF
