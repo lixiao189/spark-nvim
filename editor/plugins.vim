@@ -18,9 +18,6 @@ Plug 'nvim-lualine/lualine.nvim'
 " Notify plugin
 Plug 'rcarriga/nvim-notify'
 
-" Markdown preview plugin
-Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
-
 " Scroll bar
 Plug 'petertriho/nvim-scrollbar'
 
@@ -76,7 +73,8 @@ Plug 'numToStr/Comment.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 " The plugin to preview markdown file
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
 
 " The themes of the VIM
 Plug 'joshdick/onedark.vim'
