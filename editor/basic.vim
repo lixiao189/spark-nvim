@@ -25,6 +25,7 @@ filetype plugin indent on " required
 
 " Settings with different filetype
 autocmd FileType go set noexpandtab
+autocmd FileType go,python set tabstop=4 shiftwidth=4
 autocmd FileType vim,c,cpp,vue,html,css,ts,yaml,js,json,typescript set tabstop=2 shiftwidth=2
 
 " Set the transparent background
