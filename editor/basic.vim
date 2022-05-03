@@ -25,7 +25,7 @@ filetype plugin indent on " required
 
 " Settings with different filetype
 autocmd FileType go set noexpandtab
-autocmd FileType vim,c,cpp,vue,html,css,ts,js,json,typescript set tabstop=2 shiftwidth=2
+autocmd FileType vim,c,cpp,vue,html,css,ts,yaml,js,json,typescript set tabstop=2 shiftwidth=2
 
 " Set the transparent background
 highlight Normal guibg=NONE ctermbg=None 
