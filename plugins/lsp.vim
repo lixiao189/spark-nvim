@@ -137,6 +137,18 @@ lsp_installer.on_server_ready(function(server)
   -- capabilities.textDocument.completion.completionItem.snippetSupport = false
   opts.capabilities = capabilities
   opts.on_attach = function(client, bufnr)
+    -- highlight symbol under cursor
+    if client.resolved_capabilities.document_highlight then
+      vim.cmd [[
+        augroup lsp_document_highlight
+          autocmd! * <buffer>
+          autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd! CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+        augroup END
+      ]] 
+    end
+
     lsp_signature.on_attach()      
   end
 
