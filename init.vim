@@ -14,7 +14,7 @@ runtime ./plugins/init.lua
 runtime ./plugins/lsp.lua
 
 " The settings of the status line
-runtime ./plugins/statusline.vim
+runtime ./plugins/statusline.lua
 
 " The markdown preview plugin
 runtime ./plugins/markdown.lua

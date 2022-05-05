@@ -1,6 +1,4 @@
-set noshowmode
-lua << EOF
-local lualine = require('lualine')
+vim.o.showmode = false
 
 require('lualine').setup {
   options = {
@@ -10,4 +8,3 @@ require('lualine').setup {
     component_separators = ''
   },
 }
-EOF
