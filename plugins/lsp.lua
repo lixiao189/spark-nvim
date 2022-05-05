@@ -29,6 +29,7 @@ local servers = {
     'pyright',
     'tsserver',
     'gopls',
+    'golangci_lint_ls',
     'clangd',
     'cmake',
     'volar',
