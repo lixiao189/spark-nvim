@@ -37,9 +37,6 @@ runtime ./plugins/bufferline.vim
 " The settings of the file tree (file manager) 
 runtime ./plugins/tree.vim
 
-" The settings of the closetag plugin
-runtime ./plugins/closetag.vim
-
 " The settings of the treesitter
 runtime ./plugins/treesitter.vim
 
