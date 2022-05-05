@@ -75,6 +75,8 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " The plugin to preview markdown file
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
+" Personal wiki plugin
+Plug 'vimwiki/vimwiki'
 
 " The themes of the VIM
 Plug 'joshdick/onedark.vim'
