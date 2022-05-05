@@ -1,6 +1,5 @@
-" In your init.lua or init.vim
-set termguicolors
-lua << EOF
+vim.o.termguicolors = true
+
 require("bufferline").setup{
   options = {
     close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
@@ -20,6 +19,5 @@ require("bufferline").setup{
     },
   }
 }
-EOF
 
 

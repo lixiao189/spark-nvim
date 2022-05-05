@@ -1,4 +1,3 @@
-lua << EOF
 -- empty setup using defaults: add your own options
 require'nvim-tree'.setup {
   diagnostics = {
@@ -14,4 +13,3 @@ require'nvim-tree'.setup {
     ignore = false,
   }
 }
-EOF

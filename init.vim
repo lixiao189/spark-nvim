@@ -11,7 +11,7 @@ runtime ./editor/keybindings.vim
 runtime ./plugins/init.lua
 
 " The settings of the lsp-server
-runtime ./plugins/lsp.vim
+runtime ./plugins/lsp.lua
 
 " The settings of the status line
 runtime ./plugins/statusline.vim
@@ -32,10 +32,10 @@ runtime ./plugins/terminal.lua
 runtime ./plugins/symboloutline.vim
 
 " The settings of the bufferline
-runtime ./plugins/bufferline.vim
+runtime ./plugins/bufferline.lua
 
 " The settings of the file tree (file manager) 
-runtime ./plugins/tree.vim
+runtime ./plugins/tree.lua
 
 " The settings of the treesitter
 runtime ./plugins/treesitter.vim
