@@ -3,6 +3,9 @@ set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=99
 
 lua << EOF
+-- Use git to download parsers
+require("nvim-treesitter.install").prefer_git = true
+
 require'nvim-treesitter.configs'.setup{
   ensure_installed = "all",
 
