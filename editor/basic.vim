@@ -38,17 +38,17 @@ set updatetime=200
 let g:cursorhold_updatetime = 200
 
 lua << EOF
-vim.opt.termguicolors = true
-vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time
-vim.opt.splitbelow = true -- force all horizontal splits to go below current window
-vim.opt.splitright = true -- force all vertical splits to go to the right of current window
-vim.opt.smartcase = true -- smart case
-vim.opt.smartindent = true -- make indenting smarter again
-vim.opt.title = true -- set the title of window to the value of the titlestring
-vim.opt.titlestring = "nvim" -- what the title of the window will be set to
-vim.opt.pumheight = 10 -- pop up menu height
-vim.opt.swapfile = false -- creates a swapfile
--- vim.opt.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
-vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
+vim.o.termguicolors = true
+vim.o.numberwidth = 4 -- set number column width to 2 {default 4}
+vim.o.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time
+vim.o.splitbelow = true -- force all horizontal splits to go below current window
+vim.o.splitright = true -- force all vertical splits to go to the right of current window
+vim.o.smartcase = true -- smart case
+vim.o.smartindent = true -- make indenting smarter again
+vim.o.title = true -- set the title of window to the value of the titlestring
+vim.o.titlestring = "nvim" -- what the title of the window will be set to
+vim.o.pumheight = 10 -- pop up menu height
+vim.o.swapfile = false -- creates a swapfile
+-- vim.o.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.o.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
 EOF

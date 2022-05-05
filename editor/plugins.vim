@@ -28,17 +28,16 @@ Plug 'tami5/lspsaga.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
-" For luasnip users.
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 Plug 'folke/trouble.nvim'
-" The symbol tree plugin
 Plug 'simrat39/symbols-outline.nvim'  
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'MunifTanjim/prettier.nvim'
 Plug 'hrsh7th/cmp-cmdline'
+Plug 'folke/lua-dev.nvim'
 
 " The plugin for key bindings 
 Plug 'folke/which-key.nvim'

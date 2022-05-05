@@ -155,17 +155,8 @@ lsp_installer.on_server_ready(function(server)
     end
 
     if (server.name == "sumneko_lua") then
-        opts.settings = {
-            Lua = {
-                diagnostics = {
-                    -- Get the language server to recognize the `vim` global
-                    globals = { 'vim' },
-                }
-            }
-
-        }
+        opts = require("lua-dev").setup()
     end
-
     server:setup(opts)
 end)
 
