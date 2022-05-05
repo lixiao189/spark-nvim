@@ -1,4 +1,3 @@
-lua << EOF
 local function map(mode, lhs, rhs)
     vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
 end
@@ -71,4 +70,3 @@ wk.setup{
     align = "center",
   },
 }
-EOF

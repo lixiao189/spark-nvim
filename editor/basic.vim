@@ -51,5 +51,4 @@ vim.opt.pumheight = 10 -- pop up menu height
 vim.opt.swapfile = false -- creates a swapfile
 -- vim.opt.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
-
 EOF
