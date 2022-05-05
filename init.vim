@@ -38,7 +38,7 @@ runtime ./plugins/bufferline.lua
 runtime ./plugins/tree.lua
 
 " The settings of the treesitter
-runtime ./plugins/treesitter.vim
+runtime ./plugins/treesitter.lua
 
 " The settings of the nerdcommenter
 runtime ./plugins/commenter.vim

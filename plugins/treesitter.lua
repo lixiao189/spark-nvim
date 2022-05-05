@@ -1,8 +1,7 @@
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldlevel=99
+vim.o.foldmethod = "expr"
+vim.o.foldlevel = 99
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
-lua << EOF
 -- Use git to download parsers
 require("nvim-treesitter.install").prefer_git = true
 
@@ -37,4 +36,3 @@ require'nvim-treesitter.configs'.setup{
     additional_vim_regex_highlighting = false,
   },
 }
-EOF
