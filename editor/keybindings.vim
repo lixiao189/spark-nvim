@@ -1,10 +1,10 @@
-" use esc key to clear hightlight of seaching
-nnoremap <esc> :noh<return><esc>
-
 lua << EOF
 local function map(mode, lhs, rhs)
     vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
 end
+-- Use esc to stop highlighting
+map("n", "<esc>", "<CMD>noh<CR>")
+
 -- Linewise comment toggle using C-/
 map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>')
 map('x', '<C-_>', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
@@ -60,11 +60,7 @@ wk.register({
     k = { ":lua vim.lsp.buf.hover()<CR>", "Lsp document hover" },
     f = { ":lua vim.lsp.buf.formatting()<CR>", "Format the code" },
     r = { ":Lspsaga rename<cr>", "Rename variable" },
-    d = {
-      name = "+diagnostic",
-      n = { ":Lspsaga diagnostic_jump_next<cr>", "Jump to next diagnostic" },
-      p = { ":Lspsaga diagnostic_jump_prev<CR>", "Jump to previous diagnostic" },
-    },
+    d = { ":TroubleToggle<cr>", "Show diagnostics" },
     D = { ":Telescope lsp_definitions<cr>", "Jump to defination" },
     R = { ":Telescope lsp_references<cr>", "Show the references" },
   },

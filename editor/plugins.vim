@@ -32,6 +32,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
+Plug 'folke/trouble.nvim'
 " The symbol tree plugin
 Plug 'simrat39/symbols-outline.nvim'  
 Plug 'ray-x/lsp_signature.nvim'
