@@ -5,7 +5,7 @@ runtime ./editor/plugins.vim
 runtime ./editor/basic.vim
 
 " The settings of the keybinding
-runtime ./editor/keybindings.vim
+runtime ./editor/keybindings.lua
 
 " The setup settigns for some small plugin
 runtime ./plugins/init.lua
@@ -20,16 +20,16 @@ runtime ./plugins/statusline.vim
 runtime ./plugins/markdown.lua
 
 " The notify plugin
-runtime ./plugins/notify.vim
+runtime ./plugins/notify.lua
 
 " The dash board vim plugin
-runtime ./plugins/dashboard.vim
+runtime ./plugins/dashboard.lua
 
 " The terminal plugin
 runtime ./plugins/terminal.lua
 
 " The settings of the symbol outline plugin
-runtime ./plugins/symboloutline.vim
+runtime ./plugins/symboloutline.lua
 
 " The settings of the bufferline
 runtime ./plugins/bufferline.lua
@@ -50,7 +50,7 @@ runtime ./plugins/line.vim
 runtime ./plugins/vim-vue.vim
 
 " The indent line pluggin settigns
-runtime ./plugins/indentline.vim
+runtime ./plugins/indentline.lua
 
 " The auto pairs plugin
 runtime ./plugins/autopairs.vim

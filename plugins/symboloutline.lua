@@ -1,5 +1,3 @@
-lua << EOF
--- init.lua
 vim.g.symbols_outline = {
     highlight_hovered_item = false,
     show_guides = false,
@@ -52,4 +50,3 @@ vim.g.symbols_outline = {
         TypeParameter = {icon = "𝙏", hl = "TSParameter"}
     }
 }
-EOF
