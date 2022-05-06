@@ -20,7 +20,7 @@ set shortmess+=I " Don't show the introduction of the VIM
 set expandtab
 set guicursor=i:hor1
 set pumheight=10
-set spell
+" set spell
 colorscheme gruvbox
 filetype plugin indent on " required
 
