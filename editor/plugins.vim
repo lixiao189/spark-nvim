@@ -57,6 +57,7 @@ Plug 'lewis6991/gitsigns.nvim'
 
 " Auto pairs
 Plug 'windwp/nvim-autopairs'
+Plug 'p00f/nvim-ts-rainbow'
 
 " The file manager
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
