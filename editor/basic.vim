@@ -20,10 +20,11 @@ set shortmess+=I " Don't show the introduction of the VIM
 set expandtab
 set guicursor=i:hor1
 set pumheight=10
+set spell
 colorscheme gruvbox
 filetype plugin indent on " required
 
-" Settings with different filetype
+" Settings with different file type
 autocmd FileType go set noexpandtab
 autocmd FileType vim,c,cpp,vue,html,css,ts,yaml,js,json,typescript setlocal tabstop=2 shiftwidth=2
 
@@ -33,9 +34,12 @@ highlight Normal guibg=NONE ctermbg=None
 " Disable quote concealing in JSON files
 let g:vim_json_conceal=0
 
-" set the default value of updatetime to 200ms
+" set the default value of update time to 200ms
 set updatetime=200
 let g:cursorhold_updatetime = 200
+
+" Only check English spell checking 
+set spelllang+=cjk
 
 lua << EOF
 vim.o.termguicolors = true
@@ -45,10 +49,9 @@ vim.o.splitbelow = true -- force all horizontal splits to go below current windo
 vim.o.splitright = true -- force all vertical splits to go to the right of current window
 vim.o.smartcase = true -- smart case
 vim.o.smartindent = true -- make indenting smarter again
-vim.o.title = true -- set the title of window to the value of the titlestring
+vim.o.title = true -- set the title of window to the value of the title string
 vim.o.titlestring = "nvim" -- what the title of the window will be set to
 vim.o.pumheight = 10 -- pop up menu height
-vim.o.swapfile = false -- creates a swapfile
--- vim.o.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.o.swapfile = false -- creates a swap file
 vim.o.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
 EOF

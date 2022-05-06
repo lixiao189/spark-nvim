@@ -2,10 +2,10 @@ local function map(mode, lhs, rhs)
     vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
 end
 
--- Use esc to stop highlighting
+-- Use ESC to stop highlighting
 map("n", "<esc>", "<CMD>noh<CR>")
 
--- Linewise comment toggle using C-/
+-- Comment toggle using C-/
 map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>')
 map('x', '<C-_>', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
