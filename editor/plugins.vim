@@ -38,7 +38,6 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'MunifTanjim/prettier.nvim'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'folke/lua-dev.nvim'
-Plug 'abecodes/tabout.nvim'
 
 " The plugin for key bindings 
 Plug 'folke/which-key.nvim'
@@ -68,6 +67,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'windwp/nvim-ts-autotag'
 Plug 'lewis6991/spellsitter.nvim'
+Plug 'abecodes/tabout.nvim'
 
 " The commenter
 Plug 'numToStr/Comment.nvim'

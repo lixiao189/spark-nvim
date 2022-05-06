@@ -44,3 +44,6 @@ require 'nvim-treesitter.configs'.setup {
         -- termcolors = {} -- table of colour name strings
     }
 }
+
+-- Setup tabout plugin
+require('tabout').setup()
