@@ -11,5 +11,8 @@ require 'nvim-tree'.setup {
     },
     git = {
         ignore = false,
+    },
+    view = {
+        hide_root_folder = true,
     }
 }
