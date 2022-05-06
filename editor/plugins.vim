@@ -38,6 +38,7 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'MunifTanjim/prettier.nvim'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'folke/lua-dev.nvim'
+Plug 'abecodes/tabout.nvim'
 
 " The plugin for key bindings 
 Plug 'folke/which-key.nvim'
@@ -73,6 +74,9 @@ Plug 'numToStr/Comment.nvim'
 
 " The indent plugin
 Plug 'lukas-reineke/indent-blankline.nvim'
+
+" The plugin to solve cutting problem
+Plug 'gbprod/cutlass.nvim'
 
 " The plugin to preview markdown file
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
