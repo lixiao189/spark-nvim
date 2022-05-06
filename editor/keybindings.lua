@@ -20,6 +20,10 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
 local wk = require("which-key")
+wk.register {
+    ["[b"] = { "<cmd>BufferLineCyclePrev<CR>", "Previous buffer" },
+    ["]b"] = { "<cmd>BufferLineCycleNext<CR>", "Next buffer",  },
+}
 wk.register({
     t = { ":ToggleTerm<cr>", "Open terminal" },
     m = { ":NvimTreeToggle<CR>", "Toggle file manager" },
@@ -51,6 +55,7 @@ wk.register({
         name = "+buffer",
         g = { "<Cmd>BufferLinePick<CR>", "Go to buffer" },
         c = { "<Cmd>BufferLinePickClose<CR>", "Close buffer" },
+        d = { "<CMD>Bdelete<CR>", "Delete current buffer" }
     },
     c = {
         name = "+code action",
