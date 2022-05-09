@@ -148,6 +148,21 @@ lsp_installer.on_server_ready(function(server)
         end
     end
 
+    if (server.name == "intelephense") then
+        opts = {
+            settings = {
+                intelephense = {
+                    stubs = {
+                        "Redis",
+                    },
+                    environment = {
+                        phpVersion = "7.4.28"
+                    }
+                }
+            }
+        }
+    end
+
     if (server.name == "sumneko_lua") then
         opts = require("lua-dev").setup()
     end
