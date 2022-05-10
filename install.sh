@@ -12,5 +12,8 @@ case $(uname) in
         brew install watchman
         brew tap homebrew/cask-fonts
         brew install font-fira-code-nerd-font
+        
+        # Install python support for neovim
+        python3 -m pip install pynvim
     ;;
 esac
