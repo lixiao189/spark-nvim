@@ -54,6 +54,9 @@ end
 local luasnip = require("luasnip")
 local cmp = require 'cmp'
 cmp.setup {
+    view = {
+        entries = "native" -- can be "custom", "wildmenu" or "native"
+    },
     formatting = {
         format = require("lspkind").cmp_format({
             mode = 'symbol', -- show only symbol annotations
@@ -105,13 +108,18 @@ cmp.setup {
 
 -- The settings of the cmdline complete
 require 'cmp'.setup.cmdline(':', {
+    view = {
+        entries = "custom",
+    },
     sources = {
         { name = 'cmdline' },
-        { name = 'buffer' },
     },
     mapping = cmp.mapping.preset.cmdline({}),
 })
 require 'cmp'.setup.cmdline('/', {
+    view = {
+        entries = "custom",
+    },
     sources = {
         { name = 'buffer' }
     },
