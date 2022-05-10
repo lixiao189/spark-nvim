@@ -22,7 +22,6 @@ set guicursor=i:hor1
 set pumheight=10
 
 " set spell
-colorscheme gruvbox
 filetype plugin indent on " required
 
 " Settings with different file type
@@ -30,7 +29,6 @@ autocmd FileType go set noexpandtab
 autocmd FileType vim,c,cpp,vue,html,css,ts,yaml,js,json,typescript setlocal tabstop=2 shiftwidth=2
 
 " Set the transparent background
-highlight Normal guibg=NONE ctermbg=None 
 
 " Disable quote concealing in JSON files
 let g:vim_json_conceal=0
@@ -43,6 +41,13 @@ let g:cursorhold_updatetime = 200
 set spelllang+=cjk
 
 lua << EOF
+-- Theme settings
+vim.g.tokyonight_style = "storm"
+vim.g.tokyonight_dark_sidebar = false
+-- vim.cmd[[highlight Normal guibg=NONE ctermbg=None]]
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "vim-plug" }
+vim.cmd[[colorscheme tokyonight]]
+
 vim.o.fillchars = vim.o.fillchars .. "eob: "
 vim.o.termguicolors = true
 vim.o.numberwidth = 4 -- set number column width to 2 {default 4}

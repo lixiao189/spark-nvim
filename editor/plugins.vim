@@ -85,6 +85,6 @@ Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
 Plug 'vimwiki/vimwiki'
 
 " The themes of the VIM
-Plug 'joshdick/onedark.vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'ellisonleao/gruvbox.nvim'
 call plug#end()
