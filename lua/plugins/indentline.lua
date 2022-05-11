@@ -6,6 +6,7 @@ vim.g.indent_blankline_filetype_exclude = {
     "checkhealth",
     "Outline",
     "dashboard",
+    "packer",
 }
 
 require("indent_blankline").setup {
