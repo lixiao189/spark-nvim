@@ -60,7 +60,6 @@ wk.register({
     c = {
         name = "+code action",
         a = { ":Lspsaga code_action<cr>", "Lsp Code action" },
-        h = { ":Lspsaga hover_doc<cr>", "Show Lsp hover" },
         s = { ":SymbolsOutline<cr>", "Symbol outline" },
         k = { ":lua vim.lsp.buf.hover()<CR>", "Lsp document hover" },
         f = { ":lua vim.lsp.buf.formatting()<CR>", "Format the code" },
