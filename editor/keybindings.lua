@@ -19,6 +19,13 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
+-- Keybingdings for toggle_terminal plugin
+map("t", '<esc>', [[<C-\><C-n>:q<CR>]])
+map('t', '<C-h>', [[<C-\><C-n><C-W>h]])
+map('t', '<C-j>', [[<C-\><C-n><C-W>j]])
+map('t', '<C-k>', [[<C-\><C-n><C-W>k]])
+map('t', '<C-l>', [[<C-\><C-n><C-W>l]])
+
 local wk = require("which-key")
 wk.register {
     ["[b"] = { "<cmd>BufferLineCyclePrev<CR>", "Previous buffer" },
