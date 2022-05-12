@@ -144,6 +144,7 @@ return require('packer').startup(function(use)
     -- Themes
     use 'folke/tokyonight.nvim'
     use 'ellisonleao/gruvbox.nvim'
+    use {'stevearc/dressing.nvim'}
 
     if packer_bootstrap then
         require('packer').sync()
