@@ -7,9 +7,6 @@ require("editor/basic")
 -- The settings of the keybinding
 require("editor/keybindings")
 
--- The setup settigns for some small plugin
-require("plugins/setup")
-
 -- The settings of the lsp-server
 require("plugins/lsp")
 
