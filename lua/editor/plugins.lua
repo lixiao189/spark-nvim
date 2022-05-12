@@ -71,9 +71,7 @@ return require('packer').startup(function(use)
     }
 
     -- The telescope support
-    use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
-
 
     -- Auto pairs
     use {
