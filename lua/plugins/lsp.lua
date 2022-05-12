@@ -21,9 +21,6 @@ lsp_signature.setup {
     floating_window = false,
 }
 
--- map buffer local keybindings when the language server attaches
-local lsp_installer = require "nvim-lsp-installer"
-
 -- Lsp server list
 local servers = {
     'pyright',
@@ -40,15 +37,10 @@ local servers = {
     'sumneko_lua',
     'intelephense',
 }
-
--- Install Server automatically
-for _, name in pairs(servers) do
-    local server_is_found, server = lsp_installer.get_server(name)
-    if server_is_found and not server:is_installed() then
-        require("notify")("Installing " .. name)
-        server:install()
-    end
-end
+require("nvim-lsp-installer").setup({
+    ensure_installed = servers,
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+})
 
 -- nvim-cmp setup
 local luasnip = require("luasnip")
@@ -129,55 +121,50 @@ require 'cmp'.setup.cmdline('/', {
 -- The settings of auto completion and lsp setup
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-    opts.capabilities = capabilities
 
-    opts.on_attach = function(client, _)
-        -- highlight symbol under cursor
-        if client.resolved_capabilities.document_highlight then
-            vim.cmd [[
-                augroup lsp_document_highlight
-                  autocmd! * <buffer>
-                  autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-                  autocmd! CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-                  autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-                augroup END
-            ]]
-        end
-
-        lsp_signature.on_attach()
+local opts = {}
+opts.capabilities = capabilities
+opts.on_attach = function(client, _)
+    -- highlight symbol under cursor
+    if client.resolved_capabilities.document_highlight then
+        vim.cmd [[
+            augroup lsp_document_highlight
+              autocmd! * <buffer>
+              autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+              autocmd! CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+              autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+            augroup END
+        ]]
     end
 
-    if (server.name == "volar" or server.name == "tsserver") then
+    lsp_signature.on_attach()
+end
+
+-- Setup lsp server
+for _, server in ipairs(servers) do
+    if (server == "volar" or server == "tsserver") then
         opts.on_attach = function(client)
             client.resolved_capabilities.document_formatting = false
             client.resolved_capabilities.document_range_formatting = false
         end
-    end
-
-    if (server.name == "intelephense") then
-        opts = {
-            settings = {
-                intelephense = {
-                    stubs = {
-                        "redis",
-                        "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date", "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext", "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql", "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap", "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy", "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
-                    },
-                    environment = {
-                        phpVersion = "7.4.28"
-                    }
+    elseif (server == "intelephense") then
+        opts.settings = {
+            intelephense = {
+                stubs = {
+                    "redis",
+                    "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date", "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext", "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql", "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap", "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy", "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
+                },
+                environment = {
+                    phpVersion = "7.4.28"
                 }
             }
         }
-    end
-
-    if (server.name == "sumneko_lua") then
+    elseif (server == "sumneko_lua") then
         opts = require("lua-dev").setup()
     end
-    server:setup(opts)
-end)
 
+    require('lspconfig')[server].setup(opts)
+end
 
 -- prettier settings
 require("null-ls").setup()
