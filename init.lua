@@ -1,44 +1,44 @@
 -- Load plugins for vim
-require("editor/plugins") 
+require("editor/plugins")
 
 -- Load basic configuration for neovim
-require("editor/basic") 
+require("editor/basic")
 
 -- The settings of the keybinding
-require("editor/keybindings") 
+require("editor/keybindings")
 
 -- The setup settigns for some small plugin
-require("plugins/setup") 
+require("plugins/setup")
 
 -- The settings of the lsp-server
-require("plugins/lsp") 
+require("plugins/lsp")
 
 -- The settings of the status line
-require("plugins/statusline") 
+require("plugins/statusline")
 
 -- The markdown preview plugin
-require("plugins/markdown") 
+require("plugins/markdown")
 
 -- The notify plugin
-require("plugins/notify") 
+require("plugins/notify")
 
 -- The dash board vim plugin
-require("plugins/dashboard") 
+require("plugins/dashboard")
 
 -- The terminal plugin
-require("plugins/terminal") 
+require("plugins/terminal")
 
 -- The settings of the symbol outline plugin
-require("plugins/symboloutline") 
+require("plugins/symboloutline")
 
 -- The settings of the bufferline
-require("plugins/bufferline") 
+require("plugins/bufferline")
 
--- The settings of the file tree (file manager) 
-require("plugins/tree") 
+-- The settings of the file tree (file manager)
+require("plugins/tree")
 
 -- The settings of the treesitter
-require("plugins/treesitter") 
+require("plugins/treesitter")
 
 -- The indent line pluggin settigns
-require("plugins/indentline") 
+require("plugins/indentline")
