@@ -7,6 +7,14 @@ if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 end
 
+-- Run PackerCompile automatically
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -66,7 +74,14 @@ return require('packer').startup(function(use)
         'Shatur/neovim-cmake',
         requires = { "mfussenegger/nvim-dap" },
         config = function()
-            require('cmake').setup {}
+            require('cmake').setup {
+                configure_args = {
+                    '-D',
+                    'CMAKE_EXPORT_COMPILE_COMMANDS=1',
+                    '-D',
+                    'CMAKE_CXX_COMPILER=/usr/local/opt/llvm/bin/clang++',
+                },
+            }
         end
     }
     use {
@@ -144,7 +159,7 @@ return require('packer').startup(function(use)
     -- Themes
     use 'folke/tokyonight.nvim'
     use 'ellisonleao/gruvbox.nvim'
-    use {'stevearc/dressing.nvim'}
+    use { 'stevearc/dressing.nvim' }
 
     if packer_bootstrap then
         require('packer').sync()
