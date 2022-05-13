@@ -100,6 +100,13 @@ return require('packer').startup(function(use)
     -- Inner terminal
     use 'akinsho/toggleterm.nvim'
 
+    -- The markdown previewer
+    use {
+        "ellisonleao/glow.nvim",
+        branch = 'main',
+        run = ':GlowInstall'
+    }
+
     -- The git tui client
     use 'kdheepak/lazygit.nvim'
     -- Show the diff signs of the git
