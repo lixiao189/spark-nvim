@@ -19,6 +19,9 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- Speed up loading
+    use 'lewis6991/impatient.nvim'
+
     use 'akinsho/bufferline.nvim'
     use 'famiu/bufdelete.nvim'
     use 'antoinemadec/FixCursorHold.nvim'
