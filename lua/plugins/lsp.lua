@@ -1,3 +1,18 @@
+function CopyTable(tab)
+    local function _copy(obj)
+        if type(obj) ~= "table" then
+            return obj
+        end
+        local new_table = {}
+        for k, v in pairs(obj) do
+            new_table[_copy(k)] = _copy(v)
+        end
+        return setmetatable(new_table, getmetatable(obj))
+    end
+
+    return _copy(tab)
+end
+
 vim.o.completeopt = "menu,menuone,noselect"
 
 vim.cmd [[
@@ -122,9 +137,9 @@ require 'cmp'.setup.cmdline('/', {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local opts = {}
-opts.capabilities = capabilities
-opts.on_attach = function(client, _)
+local global_opts = {}
+global_opts.capabilities = capabilities
+global_opts.on_attach = function(client, _)
     -- highlight symbol under cursor
     if client.resolved_capabilities.document_highlight then
         vim.cmd [[
@@ -142,13 +157,14 @@ end
 
 -- Setup lsp server
 for _, server in ipairs(servers) do
+    local local_opts = CopyTable(global_opts)
     if (server == "volar" or server == "tsserver") then
-        opts.on_attach = function(client)
+        local_opts.on_attach = function(client)
             client.resolved_capabilities.document_formatting = false
             client.resolved_capabilities.document_range_formatting = false
         end
     elseif (server == "intelephense") then
-        opts.settings = {
+        local_opts.settings = {
             intelephense = {
                 stubs = {
                     "redis",
@@ -160,10 +176,10 @@ for _, server in ipairs(servers) do
             }
         }
     elseif (server == "sumneko_lua") then
-        opts = require("lua-dev").setup()
+        local_opts = require("lua-dev").setup()
     end
 
-    require('lspconfig')[server].setup(opts)
+    require('lspconfig')[server].setup(local_opts)
 end
 
 -- prettier settings
