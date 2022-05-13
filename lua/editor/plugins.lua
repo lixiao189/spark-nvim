@@ -78,12 +78,6 @@ return require('packer').startup(function(use)
         requires = { "mfussenegger/nvim-dap" },
         config = function()
             require('cmake').setup {
-                configure_args = {
-                    '-D',
-                    'CMAKE_EXPORT_COMPILE_COMMANDS=1',
-                    '-D',
-                    'CMAKE_CXX_COMPILER=/usr/local/opt/llvm/bin/clang++',
-                },
             }
         end
     }
