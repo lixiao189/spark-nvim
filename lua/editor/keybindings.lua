@@ -29,7 +29,7 @@ map('t', '<C-l>', [[<C-\><C-n><C-W>l]])
 local wk = require("which-key")
 wk.register {
     ["[b"] = { "<cmd>BufferLineCyclePrev<CR>", "Previous buffer" },
-    ["]b"] = { "<cmd>BufferLineCycleNext<CR>", "Next buffer",  },
+    ["]b"] = { "<cmd>BufferLineCycleNext<CR>", "Next buffer", },
 }
 wk.register({
     t = { ":ToggleTerm<cr>", "Open terminal" },
@@ -45,6 +45,7 @@ wk.register({
     g = {
         name = "+git action",
         t = { "<cmd>LazyGit<cr>", "Show git tui" },
+
         p = { "<cmd>Gitsigns preview_hunk<CR>", "Preview the hunk changes" },
         d = { "<cmd>Gitsigns diffthis<CR>", "Show diff in this buffer" },
         s = { ":Gitsigns stage_hunk<CR>", "Stage hunk" },
@@ -52,6 +53,9 @@ wk.register({
         S = { ":Gitsigns stage_buffer<CR>", "Stage buffer" },
         u = { ":Gitsigns undo_stage_hunk<CR>", "Undo stage" },
         R = { ":Gitsigns reset_buffer<CR>", "Reset buffer" },
+
+        c = { ":GitConflictListQf<CR>", "List confilicts" },
+
         j = {
             name = "+jump hunk",
             p = { ":Gitsigns prev_hunk<CR>", "Previous change" },

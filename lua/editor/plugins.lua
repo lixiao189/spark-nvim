@@ -109,6 +109,12 @@ return require('packer').startup(function(use)
 
     -- The git tui client
     use 'kdheepak/lazygit.nvim'
+    use {
+        'akinsho/git-conflict.nvim',
+        config = function()
+            require('git-conflict').setup()
+        end
+    }
     -- Show the diff signs of the git
     use { 'lewis6991/gitsigns.nvim',
         config = function()
