@@ -73,11 +73,11 @@ wk.register({
     },
     c = {
         name = "+code action",
-        a = { ":Lspsaga code_action<cr>", "Lsp Code action" },
+        a = { ":lua vim.lsp.buf.code_action()<CR>", "Lsp Code action" },
         s = { ":SymbolsOutline<cr>", "Symbol outline" },
         k = { ":lua vim.lsp.buf.hover()<CR>", "Lsp document hover" },
         f = { ":lua vim.lsp.buf.formatting()<CR>", "Format the code" },
-        r = { ":Lspsaga rename<cr>", "Rename variable" },
+        r = { ":lua vim.lsp.buf.rename()<CR>", "Rename variable" },
         d = { ":TroubleToggle<cr>", "Show diagnostics" },
         D = { ":Telescope lsp_definitions<cr>", "Jump to defination" },
         R = { ":Telescope lsp_references<cr>", "Show the references" },

@@ -15,21 +15,6 @@ end
 
 vim.o.completeopt = "menu,menuone,noselect"
 
-vim.cmd [[
-  augroup lspsaga_filetypes
-  autocmd!
-  autocmd FileType LspsagaHover nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-  autocmd FileType LspsagaCodeAction nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-  autocmd FileType LspsagaFloaterm nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-  autocmd FileType LspsagaDiagnostic nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-  autocmd FileType LspsagaRename nnoremap <buffer><nowait><silent> <Esc> <cmd>close!<cr>
-  augroup END
-]]
-
--- the settings of lspsaga
-local lspsaga = require 'lspsaga'
-lspsaga.setup()
-
 -- Lsp signature settings
 local lsp_signature = require "lsp_signature"
 lsp_signature.setup {
