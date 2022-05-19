@@ -19,8 +19,8 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
-map("v", "<", "<gv");
-map("v", ">", ">gv");
+map("v", "<<", "<gv");
+map("v", ">>", ">gv");
 
 -- Keybingdings for toggle_terminal plugin
 map("t", '<esc>', [[<C-\><C-n>:q<CR>]])
