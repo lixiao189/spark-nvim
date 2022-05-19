@@ -146,6 +146,26 @@ global_opts.on_attach = function(client, _)
     lsp_signature.on_attach()
 end
 
+-- prettier settings
+require("null-ls").setup()
+require("prettier").setup {
+    bin = 'prettier', -- or `prettierd`
+    filetypes = {
+        "css",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "less",
+        "scss",
+        "json",
+        "yaml",
+        "markdown",
+        "typescript",
+        "typescriptreact",
+        "vue",
+    },
+}
+
 -- Setup lsp server
 for _, server in ipairs(servers) do
     local local_opts = CopyTable(global_opts)
@@ -172,23 +192,3 @@ for _, server in ipairs(servers) do
 
     require('lspconfig')[server].setup(local_opts)
 end
-
--- prettier settings
-require("null-ls").setup()
-require("prettier").setup {
-    bin = 'prettier', -- or `prettierd`
-    filetypes = {
-        "css",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "less",
-        "scss",
-        "json",
-        "yaml",
-        "markdown",
-        "typescript",
-        "typescriptreact",
-        "vue",
-    },
-}
