@@ -54,4 +54,4 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 -- Setup tabout plugin
--- require('tabout').setup()
+require('tabout').setup()

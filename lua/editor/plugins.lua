@@ -143,7 +143,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- use 'abecodes/tabout.nvim'
+    use 'abecodes/tabout.nvim'
 
     -- The commenter
     use {
