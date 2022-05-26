@@ -136,7 +136,22 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local global_opts = {}
 global_opts.capabilities = capabilities
-global_opts.on_attach = function(client, _)
+global_opts.on_attach = function(client, bufnr)
+    -- Show diagnostic under cursor
+    vim.api.nvim_create_autocmd("CursorHold", {
+        buffer = bufnr,
+        callback = function()
+            local opts = {
+                focusable = false,
+                close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+                border = 'rounded',
+                source = 'always',
+                prefix = ' ',
+                scope = 'cursor',
+            }
+            vim.diagnostic.open_float(nil, opts)
+        end
+    })
     -- highlight symbol under cursor
     if client.resolved_capabilities.document_highlight then
         vim.cmd [[
@@ -197,4 +212,18 @@ for _, server in ipairs(servers) do
     end
 
     require('lspconfig')[server].setup(local_opts)
+end
+
+-- Theme settings for neovim lsp
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = false,
+  update_in_insert = false,
+  severity_sort = false,
+})
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
