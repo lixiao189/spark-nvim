@@ -45,14 +45,6 @@ return require('packer').startup(function(use)
     -- Notify plugin
     use 'rcarriga/nvim-notify'
 
-    -- Scroll bar
-    use {
-        'petertriho/nvim-scrollbar',
-        config = function()
-            require("scrollbar").setup()
-        end
-    }
-
     -- The dap support
     use 'mfussenegger/nvim-dap'
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
