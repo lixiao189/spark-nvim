@@ -3,7 +3,7 @@ local function map(mode, lhs, rhs)
 end
 
 -- Use ESC to stop highlighting
-map("n", "<esc>", "<CMD>noh<CR>")
+map("n", "<C-c>", "<CMD>noh<CR>")
 
 -- Comment toggle using C-/
 map('n', '<C-_>', '<CMD>lua require("Comment.api").toggle_current_linewise()<CR>')

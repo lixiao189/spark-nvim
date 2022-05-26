@@ -216,11 +216,11 @@ end
 
 -- Theme settings for neovim lsp
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = false,
-  update_in_insert = false,
-  severity_sort = false,
+    virtual_text = false,
+    signs = true,
+    underline = false,
+    update_in_insert = false,
+    severity_sort = false,
 })
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
