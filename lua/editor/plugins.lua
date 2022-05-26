@@ -63,8 +63,8 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
     use 'onsails/lspkind-nvim'
     use 'simrat39/symbols-outline.nvim'
     use 'ray-x/lsp_signature.nvim'
@@ -142,8 +142,6 @@ return require('packer').startup(function(use)
             require('spellsitter').setup()
         end
     }
-
-    use 'abecodes/tabout.nvim'
 
     -- The commenter
     use {
