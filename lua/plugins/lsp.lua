@@ -215,6 +215,8 @@ for _, server in ipairs(servers) do
 end
 
 -- Theme settings for neovim lsp
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+
 vim.diagnostic.config({
     virtual_text = false,
     signs = true,
