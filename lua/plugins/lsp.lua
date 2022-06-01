@@ -29,7 +29,7 @@ local servers = {
     'golangci_lint_ls',
     'clangd',
     'cmake',
-    'volar',
+    -- 'volar',
     'jdtls',
     'jsonls',
     'yamlls',
