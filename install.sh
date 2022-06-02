@@ -11,6 +11,7 @@ case $(uname) in
         brew install gnu-sed
         brew install ripgrep
         brew install watchman
+        brew install lazygit
         brew tap homebrew/cask-fonts
         brew install font-fira-code-nerd-font
         

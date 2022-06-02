@@ -1,6 +1,3 @@
--- Load impatient plugin
-require('impatient')
-
 -- Load plugins for vim
 require("editor/plugins")
 
