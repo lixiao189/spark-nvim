@@ -139,6 +139,12 @@ return require('packer').startup(function(use)
             require('spellsitter').setup()
         end
     }
+    use {
+        'nvim-treesitter/nvim-treesitter-context',
+        config = function()
+            require 'treesitter-context'.setup {}
+        end
+    }
 
     -- The commenter
     use {
