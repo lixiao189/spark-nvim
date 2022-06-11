@@ -20,7 +20,7 @@ require 'nvim-treesitter.configs'.setup {
     },
 
     -- List of parsers to ignore installing
-    ignore_install = {},
+    ignore_install = { "phpdoc" },
     highlight = {
         -- `false` will disable the whole extension
         enable = true,

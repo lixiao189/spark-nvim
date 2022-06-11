@@ -19,14 +19,6 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Speed up loading
-    use {
-        'lewis6991/impatient.nvim',
-        config = function()
-            require('impatient')
-        end
-    }
-
     use 'akinsho/bufferline.nvim'
     use 'famiu/bufdelete.nvim'
     use 'antoinemadec/FixCursorHold.nvim'
@@ -83,7 +75,6 @@ return require('packer').startup(function(use)
             require('trouble').setup()
         end
     }
-
     -- The plugin for key bindings
     use 'folke/which-key.nvim'
 
@@ -144,6 +135,12 @@ return require('packer').startup(function(use)
         config = function()
             require 'treesitter-context'.setup {}
         end
+    }
+    use {
+        'abecodes/tabout.nvim',
+        config = function()
+            require('tabout').setup {}
+        end,
     }
 
     -- The commenter
