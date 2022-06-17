@@ -18,7 +18,11 @@ vim.o.completeopt = "menu,menuone,noselect"
 -- Lsp signature settings
 local lsp_signature = require "lsp_signature"
 lsp_signature.setup {
-    floating_window = false,
+    bind = true, -- This is mandatory, otherwise border config won't get registered.
+    handler_opts = {
+        border = "rounded"
+    },
+    hint_enable = false,
 }
 
 -- Lsp server list
@@ -200,7 +204,13 @@ for _, server in ipairs(servers) do
             intelephense = {
                 stubs = {
                     "redis",
-                    "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date", "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext", "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql", "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap", "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy", "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
+                    "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date", "dba", "dom",
+                    "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext", "gmp", "hash", "iconv",
+                    "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc", "openssl",
+                    "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql", "Phar", "posix",
+                    "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap", "sockets",
+                    "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy",
+                    "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
                 },
                 environment = {
                     phpVersion = "7.4.28"
