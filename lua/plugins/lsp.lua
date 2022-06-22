@@ -167,8 +167,6 @@ global_opts.on_attach = function(client, bufnr)
             augroup END
         ]]
     end
-
-    lsp_signature.on_attach()
 end
 
 -- prettier settings
