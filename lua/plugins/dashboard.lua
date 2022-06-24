@@ -1,4 +1,6 @@
-vim.g.dashboard_custom_header = {
+local dashboard = require('dashboard')
+
+dashboard.custom_header = {
     ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
     ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
     ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
@@ -7,4 +9,5 @@ vim.g.dashboard_custom_header = {
     ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
 }
 
-vim.g.dashboard_default_executive = 'telescope'
+dashboard.hide_statusline = true
+dashboard.hide_tabline = true

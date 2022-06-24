@@ -22,9 +22,6 @@ require("plugins/notify")
 -- The dash board vim plugin
 require("plugins/dashboard")
 
--- The terminal plugin
-require("plugins/terminal")
-
 -- The settings of the symbol outline plugin
 require("plugins/symboloutline")
 

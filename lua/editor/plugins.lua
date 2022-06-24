@@ -4,7 +4,8 @@ local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 ---@diagnostic disable-next-line: missing-parameter
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+        install_path })
 end
 
 -- Run PackerCompile automatically
@@ -79,7 +80,12 @@ return require('packer').startup(function(use)
     use 'folke/which-key.nvim'
 
     -- Inner terminal
-    use 'akinsho/toggleterm.nvim'
+    use {
+        'akinsho/toggleterm.nvim',
+        config = function()
+            require("toggleterm").setup()
+        end
+    }
 
     -- The markdown previewer
     use {
@@ -97,7 +103,8 @@ return require('packer').startup(function(use)
         end
     }
     -- Show the diff signs of the git
-    use { 'lewis6991/gitsigns.nvim',
+    use {
+        'lewis6991/gitsigns.nvim',
         config = function()
             require('gitsigns').setup()
         end
