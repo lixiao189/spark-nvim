@@ -19,9 +19,6 @@ vim.o.completeopt = "menu,menuone,noselect"
 local lsp_signature = require "lsp_signature"
 lsp_signature.setup {
     bind = true, -- This is mandatory, otherwise border config won't get registered.
-    handler_opts = {
-        border = "rounded"
-    },
     hint_enable = false,
 }
 
@@ -74,10 +71,6 @@ cmp.setup {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
         end,
-    },
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
     },
     mapping = {
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -147,7 +140,6 @@ global_opts.on_attach = function(client, bufnr)
             local opts = {
                 focusable = false,
                 close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-                border = 'rounded',
                 source = 'always',
                 prefix = ' ',
                 scope = 'cursor',
@@ -220,9 +212,6 @@ for _, server in ipairs(servers) do
 
     require('lspconfig')[server].setup(local_opts)
 end
-
--- Theme settings for neovim lsp
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
 vim.diagnostic.config({
     virtual_text = false,
