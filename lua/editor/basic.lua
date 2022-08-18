@@ -1,9 +1,8 @@
 -- Theme settings
-vim.g.tokyonight_style = "storm"
-vim.g.tokyonight_dark_sidebar = false
--- vim.cmd[[highlight Normal guibg=NONE ctermbg=None]]
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer", "vim-plug" }
-vim.cmd [[colorscheme tokyonight]]
+require("github-theme").setup({
+    theme_style = "dark",
+    sidebars = { "NvimTree", "qf", "vista_kind", "terminal", "packer" },
+})
 
 vim.g.vim_json_conceal = 0
 vim.g.mapleader = ' '

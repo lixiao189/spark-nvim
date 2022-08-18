@@ -173,7 +173,7 @@ return require('packer').startup(function(use)
 
     -- Themes
     use 'folke/tokyonight.nvim'
-    use 'ellisonleao/gruvbox.nvim'
+    use 'projekt0n/github-nvim-theme'
     use { 'stevearc/dressing.nvim' }
 
     if packer_bootstrap then
