@@ -43,10 +43,6 @@ return require('packer').startup(function(use)
     -- Notify plugin
     use 'rcarriga/nvim-notify'
 
-    -- The dap support
-    use 'mfussenegger/nvim-dap'
-    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-
     -- The lsp support
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
