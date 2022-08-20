@@ -45,7 +45,6 @@ return require('packer').startup(function(use)
 
     -- The lsp support
     use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -54,10 +53,15 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind-nvim'
     use 'simrat39/symbols-outline.nvim'
     use 'ray-x/lsp_signature.nvim'
-    use 'jose-elias-alvarez/null-ls.nvim'
-    use 'MunifTanjim/prettier.nvim'
     use 'hrsh7th/cmp-cmdline'
     use 'folke/lua-dev.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use {
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end
+    }
     use {
         'Shatur/neovim-cmake',
         requires = { "mfussenegger/nvim-dap" },
@@ -72,6 +76,7 @@ return require('packer').startup(function(use)
             require('trouble').setup()
         end
     }
+
     -- The plugin for key bindings
     use 'folke/which-key.nvim'
 

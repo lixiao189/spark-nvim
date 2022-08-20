@@ -37,7 +37,7 @@ local servers = {
     'sumneko_lua',
     'intelephense',
 }
-require("nvim-lsp-installer").setup({
+require("mason-lspconfig").setup({
     ensure_installed = servers,
     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
 })
@@ -128,7 +128,6 @@ require 'cmp'.setup.cmdline('/', {
 
 -- The settings of auto completion and lsp setup
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local global_opts = {}
 global_opts.capabilities = capabilities
@@ -159,26 +158,6 @@ global_opts.on_attach = function(client, bufnr)
         ]]
     end
 end
-
--- prettier settings
-require("null-ls").setup()
-require("prettier").setup {
-    bin = 'prettier', -- or `prettierd`
-    filetypes = {
-        "css",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "less",
-        "scss",
-        "json",
-        "yaml",
-        "markdown",
-        "typescript",
-        "typescriptreact",
-        "vue",
-    },
-}
 
 -- Setup lsp server
 for _, server in ipairs(servers) do
