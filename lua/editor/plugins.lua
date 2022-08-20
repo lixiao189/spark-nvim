@@ -132,6 +132,7 @@ return require('packer').startup(function(use)
     -- Tree sitter plugin
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'windwp/nvim-ts-autotag'
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
     use {
         'lewis6991/spellsitter.nvim',
         config = function()
@@ -155,7 +156,9 @@ return require('packer').startup(function(use)
     use {
         'numToStr/Comment.nvim',
         config = function()
-            require('Comment').setup {}
+            require('Comment').setup {
+                pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+            }
         end
     }
 
