@@ -48,9 +48,9 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/vim-vsnip'
     use 'onsails/lspkind-nvim'
+    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+    use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use 'simrat39/symbols-outline.nvim'
     use 'ray-x/lsp_signature.nvim'
     use 'hrsh7th/cmp-cmdline'

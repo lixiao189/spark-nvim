@@ -43,15 +43,7 @@ require("mason-lspconfig").setup({
 })
 
 -- nvim-cmp setup
-local has_words_before = function()
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
-local feedkey = function(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
+local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 cmp.setup {
     view = {
@@ -67,38 +59,36 @@ cmp.setup {
         })
     },
     snippet = {
-        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            luasnip.lsp_expand(args.body)
         end,
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<CR>'] = cmp.mapping.confirm {
-            -- behavior = cmp.ConfirmBehavior.Replace,
+            behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
-            elseif has_words_before() then
-                cmp.complete()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
             else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+                fallback()
             end
-        end, { "i", "s" }),
-
-        ["<S-Tab>"] = cmp.mapping(function()
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                feedkey("<Plug>(vsnip-jump-prev)", "")
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
             end
-        end, { "i", "s" }),
-    },
+        end, { 'i', 's' }),
+    }),
     sources = {
         { name = 'nvim_lsp' },
         { name = 'buffer' },
@@ -127,7 +117,9 @@ require 'cmp'.setup.cmdline('/', {
 })
 
 -- The settings of auto completion and lsp setup
+-- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local global_opts = {}
 global_opts.capabilities = capabilities
@@ -162,12 +154,7 @@ end
 -- Setup lsp server
 for _, server in ipairs(servers) do
     local local_opts = CopyTable(global_opts)
-    if (server == "volar" or server == "tsserver") then
-        local_opts.on_attach = function(client)
-            client.resolved_capabilities.document_formatting = false
-            client.resolved_capabilities.document_range_formatting = false
-        end
-    elseif (server == "intelephense") then
+    if (server == "intelephense") then
         local_opts.settings = {
             intelephense = {
                 stubs = {
@@ -179,9 +166,6 @@ for _, server in ipairs(servers) do
                     "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap", "sockets",
                     "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy",
                     "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
-                },
-                environment = {
-                    phpVersion = "7.4.28"
                 }
             }
         }
