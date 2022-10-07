@@ -34,6 +34,7 @@ local servers = {
     'jsonls',
     'yamlls',
     'vimls',
+    'omnisharp_mono',
     'sumneko_lua',
     'intelephense',
 }
