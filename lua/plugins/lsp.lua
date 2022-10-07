@@ -139,7 +139,7 @@ global_opts.on_attach = function(client, bufnr)
         end
     })
     -- highlight symbol under cursor
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlightProvider then
         vim.cmd [[
             augroup lsp_document_highlight
               autocmd! * <buffer>
@@ -151,26 +151,20 @@ global_opts.on_attach = function(client, bufnr)
     end
 end
 
+
+-- IMPORTANT: make sure to setup lua-dev BEFORE lspconfig
+require("lua-dev").setup()
 -- Setup lsp server
 for _, server in ipairs(servers) do
     local local_opts = CopyTable(global_opts)
-    if (server == "intelephense") then
+    if (server == "sumneko_lua") then
         local_opts.settings = {
-            intelephense = {
-                stubs = {
-                    "redis",
-                    "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date", "dba", "dom",
-                    "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext", "gmp", "hash", "iconv",
-                    "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli", "oci8", "odbc", "openssl",
-                    "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql", "Phar", "posix",
-                    "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap", "sockets",
-                    "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy",
-                    "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
+            Lua = {
+                completion = {
+                    callSnippet = "Replace"
                 }
             }
         }
-    elseif (server == "sumneko_lua") then
-        local_opts = require("lua-dev").setup()
     end
 
     require('lspconfig')[server].setup(local_opts)
