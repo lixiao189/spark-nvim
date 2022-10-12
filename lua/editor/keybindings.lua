@@ -32,10 +32,12 @@ wk.register {
 }
 wk.register({
     w = { ":w<cr>", "Save the file" },
-    q = { ":q<cr>", "Quit the neovim" },
+    q = { ":q<cr>", "Quit the window" },
     t = { ":ToggleTerm<cr>", "Open terminal" },
     m = { ":NvimTreeToggle<CR>", "Toggle file manager" },
     r = { ":!sh run.sh<cr>", "Run code with run.sh" },
+    v = { ":vertical split<CR>", "Vertical split the window" },
+    s = { ":split<CR>", "Split the window" },
     f = {
         name = "+find",
         f = { "<cmd>Telescope find_files<cr>", "Find File" },

@@ -154,7 +154,7 @@ end
 
 
 -- IMPORTANT: make sure to setup lua-dev BEFORE lspconfig
-require("lua-dev").setup()
+require("lua-dev").setup({})
 -- Setup lsp server
 for _, server in ipairs(servers) do
     local local_opts = CopyTable(global_opts)
