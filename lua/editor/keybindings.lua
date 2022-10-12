@@ -31,6 +31,8 @@ wk.register {
     ["]b"] = { "<cmd>BufferLineCycleNext<CR>", "Next buffer", },
 }
 wk.register({
+    w = { ":w<cr>", "Save the file" },
+    q = { ":q<cr>", "Quit the neovim" },
     t = { ":ToggleTerm<cr>", "Open terminal" },
     m = { ":NvimTreeToggle<CR>", "Toggle file manager" },
     r = { ":!sh run.sh<cr>", "Run code with run.sh" },
