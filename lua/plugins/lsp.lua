@@ -33,6 +33,7 @@ local servers = {
     'jdtls',
     'jsonls',
     'yamlls',
+    'rust_analyzer',
     'vimls',
     'omnisharp_mono',
     'sumneko_lua',
