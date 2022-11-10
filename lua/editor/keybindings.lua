@@ -19,7 +19,7 @@ map("v", "<<", "<gv");
 map("v", ">>", ">gv");
 
 -- Keybingdings for toggle_terminal plugin
-map("t", '<esc>', [[<C-\><C-n>:q<CR>]])
+map("t", '<esc>', [[<C-\><C-n>]])
 map('t', '<C-h>', [[<C-\><C-n><C-W>h]])
 map('t', '<C-j>', [[<C-\><C-n><C-W>j]])
 map('t', '<C-k>', [[<C-\><C-n><C-W>k]])
