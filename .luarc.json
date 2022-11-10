@@ -1,10 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-    "Lua.diagnostics.globals": [
-        "packer_bootstrap"
-    ],
     "Lua.workspace.library": [
-        "/Users/node/.local/share/nvim/site/pack/packer/start/lua-dev.nvim/types",
+        "/Users/node/.local/share/nvim/site/pack/packer/start/neodev.nvim/types/stable",
         "/opt/homebrew/Cellar/neovim/0.8.0/share/nvim/runtime",
         "/Users/node/.local/share/nvim/site/pack/packer/start/bufdelete.nvim",
         "/Users/node/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -24,11 +21,11 @@
         "/Users/node/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
         "/Users/node/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
         "/Users/node/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
-        "/Users/node/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
         "/Users/node/.local/share/nvim/site/pack/packer/start/lualine.nvim",
         "/Users/node/.local/share/nvim/site/pack/packer/start/LuaSnip",
         "/Users/node/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
         "/Users/node/.local/share/nvim/site/pack/packer/start/mason.nvim",
+        "/Users/node/.local/share/nvim/site/pack/packer/start/neodev.nvim",
         "/Users/node/.local/share/nvim/site/pack/packer/start/neovim-cmake",
         "/Users/node/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
         "/Users/node/.local/share/nvim/site/pack/packer/start/nvim-cmp",
