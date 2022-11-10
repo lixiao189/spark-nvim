@@ -121,7 +121,7 @@ require 'cmp'.setup.cmdline('/', {
 -- The settings of auto completion and lsp setup
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local global_opts = {}
 global_opts.capabilities = capabilities
@@ -155,7 +155,7 @@ end
 
 
 -- IMPORTANT: make sure to setup lua-dev BEFORE lspconfig
-require("lua-dev").setup({})
+require("neodev").setup({})
 -- Setup lsp server
 for _, server in ipairs(servers) do
     local local_opts = CopyTable(global_opts)

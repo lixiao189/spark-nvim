@@ -54,7 +54,7 @@ return require('packer').startup(function(use)
     use 'simrat39/symbols-outline.nvim'
     use 'ray-x/lsp_signature.nvim'
     use 'hrsh7th/cmp-cmdline'
-    use 'folke/lua-dev.nvim'
+    use 'folke/neodev.nvim'
     use 'williamboman/mason-lspconfig.nvim'
     use {
         "williamboman/mason.nvim",
