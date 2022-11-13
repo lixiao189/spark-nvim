@@ -45,6 +45,7 @@ vim.o.writebackup = false -- if a file is being edited by another program (or wa
 
 vim.cmd [[
     syntax on
+    hi Normal guibg=NONE ctermbg=NONE
     filetype plugin indent on " required
     autocmd FileType go setlocal noexpandtab
     autocmd FileType vim,c,cpp,vue,html,css,ts,yaml,js,json,typescript setlocal tabstop=2 shiftwidth=2
