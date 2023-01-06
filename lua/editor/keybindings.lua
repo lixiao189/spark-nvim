@@ -2,6 +2,10 @@ local function map(mode, lhs, rhs)
     vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
 end
 
+-- Moving to beginning and the end
+map("n", "L", "$")
+map("n", "H", "^")
+
 -- Use Ctrl + c to stop highlighting
 map("n", "<C-c>", "<CMD>noh<CR>")
 
