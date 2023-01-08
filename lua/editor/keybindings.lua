@@ -5,6 +5,8 @@ end
 -- Moving to beginning and the end
 map("n", "L", "$")
 map("n", "H", "^")
+map("v", "L", "$")
+map("v", "H", "^")
 
 -- Use Ctrl + c to stop highlighting
 map("n", "<C-c>", "<CMD>noh<CR>")
