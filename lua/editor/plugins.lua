@@ -94,6 +94,14 @@ return require('packer').startup(function(use)
         run = ':GlowInstall'
     }
 
+    -- The markdown previewer with web browser
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
+
+
     -- The git tui client
     use 'kdheepak/lazygit.nvim'
     use {
