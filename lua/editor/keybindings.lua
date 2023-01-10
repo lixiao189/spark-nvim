@@ -73,19 +73,21 @@ wk.register({
     },
     b = {
         name = "+buffer",
+        l = { "<Cmd>lua require('telescope.builtin').buffers()<CR>", "Show buffer list" },
         g = { "<Cmd>BufferLinePick<CR>", "Go to buffer" },
         c = { "<Cmd>BufferLinePickClose<CR>", "Close buffer" },
         d = { "<CMD>Bdelete<CR>", "Delete current buffer" }
     },
     c = {
-        name = "+code action",
+        name = "+code",
         a = { ":lua vim.lsp.buf.code_action()<CR>", "Lsp Code action" },
         s = { ":SymbolsOutline<cr>", "Symbol outline" },
         k = { ":lua vim.lsp.buf.hover()<CR>", "Lsp document hover" },
         f = { ":lua vim.lsp.buf.format { async = true }<CR>", "Format the code" },
         r = { ":lua vim.lsp.buf.rename()<CR>", "Rename variable" },
-        d = { ":TroubleToggle<cr>", "Show diagnostics" },
-        D = { ":Telescope lsp_definitions<cr>", "Jump to defination" },
+        t = { ":TroubleToggle<cr>", "Show trouble" },
+        d = { ":Telescope lsp_definitions<cr>", "Jump to defination" },
+        D = { ":vsplit<CR>:Telescope lsp_definitions<cr>", "Jump to defination" },
         R = { ":Telescope lsp_references<cr>", "Show the references" },
     },
 }, { prefix = "<leader>" })
