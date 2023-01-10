@@ -185,7 +185,7 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- null-ls formatter config
+-- auto install formater
 require("mason-null-ls").setup({
     ensure_installed = {
         -- Opt to list sources here, when available in mason.
@@ -193,12 +193,14 @@ require("mason-null-ls").setup({
         'prettier'
     },
     automatic_installation = true,
-    automatic_setup = true, -- Recommended, but optional
+    automatic_setup = false, -- Recommended, but optional
 })
-require("null-ls").setup(
-    -- sources = {
-    --     -- Anything not supported by mason.
-    -- }
-)
 
-require 'mason-null-ls'.setup_handlers() -- If `automatic_setup` is true.
+-- set formater
+local null_ls = require("null-ls")
+require("null-ls").setup {
+    sources = {
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.autopep8
+    }
+}
