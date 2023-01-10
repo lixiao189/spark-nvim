@@ -55,6 +55,8 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-cmdline'
     use 'folke/neodev.nvim'
     use 'williamboman/mason-lspconfig.nvim'
+    use 'jayp0521/mason-null-ls.nvim'
+    use 'jose-elias-alvarez/null-ls.nvim'
     use {
         "williamboman/mason.nvim",
         config = function()
